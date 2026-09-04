@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none">
+  <!-- Containers grid -->
+  <rect x="2"  y="11" width="4" height="3" rx="0.5" fill="#2496ED"/>
+  <rect x="7"  y="11" width="4" height="3" rx="0.5" fill="#2496ED"/>
+  <rect x="12" y="11" width="4" height="3" rx="0.5" fill="#2496ED"/>
+  <rect x="7"  y="7"  width="4" height="3" rx="0.5" fill="#2496ED"/>
+  <rect x="12" y="7"  width="4" height="3" rx="0.5" fill="#2496ED"/>
+  <rect x="12" y="3"  width="4" height="3" rx="0.5" fill="#2496ED"/>
+  <!-- Whale base line -->
+  <path d="M2 15.5 C4 17.5 8 18 12 17.5 C16 17 20 16 22 14.5" stroke="#2496ED" strokeWidth="1.5" strokeLinecap="round" fill="none"/>
+</svg>
