@@ -39,7 +39,7 @@ export default function HeroContent() {
         <em className="not-italic text-fjord-200">bare fungerer.</em>
       </motion.h1>
       <motion.p
-        className="max-w-147.5 text-[1.06rem] leading-7 text-fjord-50/90"
+        className="text-center text-[1.06rem] leading-7 text-fjord-50/90"
         variants={item}
         transition={transition(0.5)}
       >
