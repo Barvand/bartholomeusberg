@@ -3,10 +3,10 @@ export const organisationNumber = "935 192 706";
 export const projects = [
   {
     slug: "total-timing",
-    name: "Total Timing",
+    name: "TotalTiming",
     description:
-      "Arbeidsstyringssystem for byggebransjen med timeregistrering, prosjektstyring, fravær og rapportering – bygget for både mobil og desktop.",
-    stack: ["Timeregistrering", "Prosjektstyring", "Internsystem"],
+      "Arbeidsstyringssystem for byggebransjen med timeregistrering, prosjektstyring, fravær og rapportering, med et grensesnitt tilpasset både mobil og PC.",
+    stack: ["Timeregistrering", "Prosjektstyring", "Internt system"],
     image: "/showcase-totaltiming.svg",
     liveLink: "",
     repoLink: "",
@@ -14,16 +14,16 @@ export const projects = [
     year: "2026",
     category: "featured",
     intro:
-      "Et arbeidsstyringssystem for byggebransjen, utviklet for å gjøre arbeidsflyten raskere og mer effektiv, slik at du kan bruke mer tid på det som faktisk er viktig.",
+      "Et arbeidsstyringssystem for byggebransjen, utviklet for å gjøre arbeidsflyten enklere og mer effektiv, slik at mer tid kan brukes på selve jobben.",
     challenge:
       "Timer, prosjekter, bilder og fravær måtte håndteres på en mer samlet og oversiktlig måte.",
     approach: [
       "Bygget en webapplikasjon for ansatte og administrasjon.",
       "Samlet timeregistrering, prosjektstyring og fravær i én løsning.",
-      "Tilpasset grensesnittet for bruk på både mobil og desktop.",
+      "Tilpasset grensesnittet for bruk på både mobil og PC.",
     ],
     outcome:
-      "En samlet løsning for sentrale arbeidsoppgaver, med et grensesnitt tilpasset både felt og kontor.",
+      "En samlet løsning for sentrale arbeidsoppgaver, med et grensesnitt tilpasset både mobil og PC.",
   },
   {
     slug: "totalentreprenor-as",
@@ -53,16 +53,8 @@ export const projects = [
     slug: "holidaze",
     name: "Holidaze",
     description:
-      "En moderne bestillingsplattform med søk, innlogging og administrasjon av overnattingssteder.",
-    stack: [
-      "React",
-      "TypeScript",
-      "Tailwind CSS",
-      "JavaScript",
-      "HTML",
-      "CSS",
-      "Vite",
-    ],
+      "En bestillingsplattform for overnattingssteder med søk, innlogging og administrasjon.",
+    stack: ["React", "TypeScript", "Tailwind CSS"],
     image: "/holidaze-desktop.jpg",
     liveLink: "https://holidazingtime.netlify.app/",
     repoLink: "https://github.com/Barvand/Project-exam-2",
@@ -85,17 +77,8 @@ export const projects = [
     slug: "timeless",
     name: "Timeless",
     description:
-      "Et skoleprosjekt utviklet som en komplett, responsiv nettløsning.",
-    stack: [
-      "React",
-      "JavaScript",
-      "HTML",
-      "CSS",
-      "Tailwind CSS",
-      "React Router",
-      "Zustand",
-      "Vite",
-    ],
+      "En responsiv nettbutikk utviklet som en del av frontendstudiet.",
+    stack: ["React", "JavaScript", "CSS"],
     image: "/timeless-website.png",
     liveLink: "https://timeless-shop.netlify.app/",
     repoLink: "https://github.com/Barvand/TimeLess-Ecommerce",
@@ -107,8 +90,8 @@ export const projects = [
     slug: "vindt",
     name: "Vindt",
     description:
-      "Et digitalt prosjekt med en moderne og innholdsorientert visuell retning.",
-    stack: ["JavaScript", "HTML", "SCSS/CSS", "Bootstrap", "Sass"],
+      "Et frontendprosjekt med fokus på innhold, struktur og visuell retning.",
+    stack: ["JavaScript", "HTML", "SCSS/CSS"],
     image: "/vindt-desktop.jpg",
     liveLink: "https://vindt-auction.netlify.app/home/",
     repoLink: "https://github.com/Barvand/Semester-Project-2",
@@ -120,7 +103,7 @@ export const projects = [
 
 export const milestones = [
   {
-    title: "Forstår hverdagen i bygg og anlegg",
+    title: "Forstår hverdagen i bygg- og anleggsbransjen",
     year: "Erfaring fra bransjen",
     location: "Bergen",
     description:
@@ -131,13 +114,13 @@ export const milestones = [
     year: "2023 – i dag",
     location: "Bergen",
     description:
-      "Utdannet front-end-utvikler fra Noroff. Jobber med nettsider, webapplikasjoner og praktiske IT-løsninger for privatpersoner og små bedrifter.",
+      "Utdannet frontend-utvikler ved Noroff. Jeg jobber med nettsider, webapplikasjoner og praktiske IT-løsninger for privatpersoner og små bedrifter.",
   },
   {
     title: "Ryddig samarbeid",
     year: "Fra første prat til lansering",
     location: "Bergen",
     description:
-      "Tydelig kommunikasjon, faste avtaler og et resultat dere kan bruke med en gang.",
+      "Tydelig kommunikasjon, klare avtaler og løsninger dere kan ta i bruk med en gang.",
   },
 ];

@@ -13,15 +13,13 @@ export const metadata = { alternates: { canonical: "/" } };
 const personSchema = {
   "@context": "https://schema.org",
   "@type": "ProfessionalService",
-  name: "BART VDB",
+  name: "Bartholomeus Berg",
   description:
-    "IT, nettsider og teknisk hjelp for små bedrifter og privatpersoner i Bergen.",
-  areaServed: "Bergen",
-  address: {
-    "@type": "PostalAddress",
-    addressLocality: "Bergen",
-    addressCountry: "NO",
-  },
+    "Nettsider, PC-hjelp og praktisk IT-hjelp for små bedrifter og privatpersoner i Arna og Bergen.",
+  areaServed: [
+    { "@type": "Place", name: "Arna, Bergen, Norge" },
+    { "@type": "City", name: "Bergen, Norge" },
+  ],
   url: "https://bartvandenberg.no",
 };
 

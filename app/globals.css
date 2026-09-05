@@ -63,7 +63,13 @@
 }
 .home-hero-image {
   object-fit: cover;
-  object-position: 42% center;
+}
+.home-hero-image-desktop {
+  object-position: center;
+}
+.home-hero-image-mobile {
+  display: none;
+  object-position: center;
 }
 .home-hero-overlay {
   position: absolute;
@@ -79,6 +85,14 @@
   position: relative;
   z-index: 1;
   padding-top: 4rem;
+}
+@media (max-width: 767px) {
+  .home-hero-image-desktop {
+    display: none;
+  }
+  .home-hero-image-mobile {
+    display: block;
+  }
 }
 .eyebrow {
   margin: 0 0 1rem;
@@ -359,8 +373,8 @@
     padding-top: 4.75rem;
   }
   .home-hero-copy {
-    max-width: 51.875rem;
-    margin-left: auto;
+    max-width: 47rem;
+    margin-inline: auto;
   }
   .offer-section {
     padding: 5rem 0;
@@ -444,6 +458,110 @@
 }
 .service-dark-heading em {
   color: var(--color-fjord-600);
+}
+.service-overview-web {
+  background: var(--color-fjord-100);
+}
+.service-overview-it {
+  background: var(--color-fjord-900);
+  color: white;
+}
+.service-overview-intro {
+  max-width: 38rem;
+  margin: 0;
+  color: var(--color-fjord-800);
+  font-size: 1.06rem;
+  line-height: 1.75rem;
+}
+.service-overview-it .service-overview-intro {
+  color: rgb(229 239 244 / 0.75);
+}
+.service-editorial-list {
+  margin-top: 3rem;
+  border-top: 1px solid var(--color-fjord-300);
+}
+.service-editorial-row {
+  display: grid;
+  grid-template-columns: 2.5rem minmax(0, 1fr);
+  gap: 0.75rem;
+  padding: 1.5rem 0;
+  border-bottom: 1px solid var(--color-fjord-300);
+}
+.service-editorial-row > span {
+  color: var(--color-fjord-600);
+  font-family: var(--font-display);
+  font-size: 0.9rem;
+  font-weight: 700;
+}
+.service-editorial-row h3 {
+  margin: 0;
+  font-family: var(--font-display);
+  font-size: clamp(1.35rem, 3vw, 1.8rem);
+  font-weight: 600;
+  letter-spacing: -0.04em;
+  line-height: 1.08;
+}
+.service-editorial-row p {
+  max-width: 38rem;
+  margin: 0.6rem 0 0;
+  color: var(--color-fjord-800);
+  line-height: 1.6rem;
+}
+.service-editorial-row a,
+.service-overview-link {
+  display: inline-block;
+  margin-top: 1rem;
+  color: var(--color-fjord-600);
+  font-size: 0.875rem;
+  font-weight: 700;
+}
+.service-overview-link {
+  margin-top: 1.75rem;
+}
+.service-overview-it .service-editorial-list {
+  border-color: rgb(229 239 244 / 0.18);
+}
+.service-overview-it .service-editorial-row {
+  border-color: rgb(229 239 244 / 0.18);
+}
+.service-overview-it .service-editorial-row > span,
+.service-overview-it .service-editorial-row a {
+  color: var(--color-fjord-200);
+}
+.service-overview-it .service-editorial-row p {
+  color: rgb(229 239 244 / 0.75);
+}
+.service-editorial-row a:hover,
+.service-overview-link:hover {
+  color: var(--color-fjord-950);
+}
+.service-overview-it .service-editorial-row a:hover {
+  color: white;
+}
+.home-service-list {
+  margin-top: 3rem;
+  border-color: rgb(229 239 244 / 0.18);
+}
+.home-service-list .service-editorial-row {
+  border-color: rgb(229 239 244 / 0.18);
+}
+.home-service-list .service-editorial-row > span,
+.home-service-list .service-editorial-row a {
+  color: var(--color-fjord-200);
+}
+.home-service-list .service-editorial-row p {
+  color: rgb(229 239 244 / 0.75);
+}
+.home-service-list .service-editorial-row a:hover {
+  color: white;
+}
+.home-services-cta {
+  margin-top: 2rem;
+  background: var(--color-fjord-200);
+  color: var(--color-fjord-950);
+}
+.home-services-cta:hover {
+  background: white;
 }
 .software-section,
 .service-cta {

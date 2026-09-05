@@ -13,7 +13,7 @@ import { AccentLine, Reveal } from "./animation/reveal";
 
 const facts = [
   ["Fullstack", "Webapplikasjon"],
-  ["Bruk", "Mobil + desktop"],
+  ["Bruk", "Mobil + PC"],
   ["Fokus", "Timeregistrering og prosjektstyring"],
 ];
 
@@ -49,13 +49,13 @@ export default function TotalTimingShowcase() {
               <p>Løsning</p>
               <span>
                 En webapplikasjon for ansatte og administrasjon med
-                timeregistrering, prosjektstyring og støtte for både mobil og
-                desktop.
+                timeregistrering, prosjektstyring og et grensesnitt tilpasset
+                både mobil og PC.
               </span>
             </div>
           </div>
           <div className="total-timing-tags">
-            {["Timeregistrering", "Prosjektstyring", "Internsystem"].map(
+            {["Timeregistrering", "Prosjektstyring", "Internt system"].map(
               (tag) => (
                 <span key={tag}>{tag}</span>
               ),
@@ -69,7 +69,7 @@ export default function TotalTimingShowcase() {
           <motion.div style={{ y: visualY }} className="total-timing-image">
             <Image
               src="/showcase-totaltiming.svg"
-              alt="TotalTiming på mobil og desktop"
+              alt="TotalTiming tilpasset mobil og PC"
               width={1219}
               height={858}
               priority

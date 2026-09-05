@@ -19,8 +19,8 @@ export default function AboutSection() {
           <p className="eyebrow">Hvem jeg er</p>
           <h2 className="section-heading about-heading">Jeg snakker <em>rett fram.</em></h2>
           <p className="section-intro about-intro">
-            Jeg har bakgrunn fra både utvikling og bygg og anlegg. Det betyr at
-            jeg forstår at teknologi må være nyttig i praksis og at en god
+            Jeg har bakgrunn fra både utvikling og bygg- og anleggsbransjen. Det betyr at
+            jeg forstår at teknologi må være nyttig i praksis, og at en god
             løsning ikke trenger en lang teknisk forklaring.
           </p>
           <ol className="milestones">

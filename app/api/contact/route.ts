@@ -25,7 +25,7 @@ export async function POST(request: Request) {
   const turnstileSecret = process.env.TURNSTILE_SECRET_KEY;
   if (!turnstileSecret)
     return NextResponse.json(
-      { error: "Botbeskyttelsen er ikke konfigurert." },
+      { error: "Skjemaet er midlertidig utilgjengelig." },
       { status: 503 },
     );
 

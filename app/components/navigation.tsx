@@ -16,7 +16,7 @@ export default function Navigation() {
         href="/"
         className="font-display text-[1.05rem] font-bold tracking-[0.1em]"
       >
-        BART<span className="ml-1.5 text-fjord-200">VDB</span>
+        BARTHOLOMEUS<span className="ml-1.5 text-fjord-200">BERG</span>
       </Link>
       <button
         className="border-0 bg-transparent text-sm font-medium text-white md:hidden"

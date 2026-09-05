@@ -5,26 +5,26 @@ import "./globals.css";
 export const metadata: Metadata = {
   metadataBase: new URL("https://bartvandenberg.no"),
   title: {
-    default: "BART VDB | IT, nettsider og teknisk hjelp i Bergen",
-    template: "%s | BART VDB",
+    default: "Bartholomeus Berg | Nettsider og IT-hjelp i Arna og Bergen",
+    template: "%s | Bartholomeus Berg",
   },
   description:
-    "Nettsider, PC-hjelp, IT-support og digitale løsninger for privatpersoner og små bedrifter i Bergen.",
+    "Nettsider, PC-hjelp og praktisk IT-hjelp for privatpersoner og små bedrifter i Arna og Bergen.",
   keywords: [
-    "IT hjelp Bergen",
-    "PC hjelp Bergen",
-    "PC reparasjon Bergen",
+    "nettside Arna",
     "nettside Bergen",
     "webutvikler Bergen",
-    "IT support små bedrifter Bergen",
-    "IT tjenester Bergen",
-    "bedrifts IT Bergen",
+    "PC-hjelp Arna",
+    "PC-hjelp Bergen",
+    "IT-hjelp Arna",
+    "IT-hjelp Bergen",
+    "Bedrifts-IT Bergen",
   ],
   authors: [{ name: "Bart van den Berg" }],
   openGraph: {
-    title: "BART VDB | IT, nettsider og teknisk hjelp i Bergen",
+    title: "Bartholomeus Berg | Nettsider og IT-hjelp i Arna og Bergen",
     description:
-      "Nettsider, PC-hjelp, IT-support og digitale løsninger for små bedrifter og privatpersoner i Bergen.",
+      "Nettsider, PC-hjelp og praktisk IT-hjelp for privatpersoner og små bedrifter i Arna og Bergen.",
     type: "website",
     locale: "nb_NO",
     images: [
@@ -38,7 +38,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "BART VDB | IT, nettsider og teknisk hjelp i Bergen",
+    title: "Bartholomeus Berg | Nettsider og IT-hjelp i Arna og Bergen",
     images: ["/newhero.jpg"],
   },
   robots: { index: true, follow: true },

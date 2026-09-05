@@ -21,7 +21,10 @@ function ProjectCard({
   const reduceMotion = useReducedMotion();
   const isDetailed = "intro" in project;
   const link = isDetailed ? (
-    <Link className="project-arrow-link" href={`/prosjekter/${project.slug}`}>
+    <Link
+      className="text-fjord-100 bg-fjord-600 p-3"
+      href={`/prosjekter/${project.slug}`}
+    >
       Les caset <span aria-hidden="true">→</span>
     </Link>
   ) : project.liveLink ? (

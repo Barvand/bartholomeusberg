@@ -12,12 +12,15 @@ export default function BusinessItSection() {
           </h2>
         </Reveal>
         <Reveal delay={0.08}>
-          <p>
-            PC-er, e-post, nettverk, backup, lagring og nettsider. Én person å
-            kontakte når noe skal settes opp, forbedres eller bare fungere igjen.
+          <p className="mb-5">
+            PC-er, e-post, programvare, brukeroppsett og nettsider. Én person å
+            kontakte når noe skal settes opp, forbedres eller bare fungere
+            igjen.
           </p>
-          <p className="direct-line">Du snakker med personen som faktisk gjør jobben.</p>
-          <Link className="text-link" href="/tjenester/bedrifts-it">
+          <Link
+            className="text-fjord-100 bg-fjord-600 p-3"
+            href="/tjenester/bedrifts-it"
+          >
             Les om bedrifts-IT <span aria-hidden="true">→</span>
           </Link>
         </Reveal>

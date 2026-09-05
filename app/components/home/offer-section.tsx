@@ -7,16 +7,16 @@ export default function OfferSection() {
         <Reveal>
           <p className="eyebrow">Aktuelt tilbud</p>
           <h2 className="section-heading offer-heading">
-            Ny nettside til kun <em>9 999 kr.</em>
+            Ny nettside til <em>9 999 kr.</em>
           </h2>
           <p className="section-intro offer-intro">
-            Jeg åpner nå for fem enkle bedriftsnettsider til fast pris. Passer
-            for håndverkere og små bedrifter som trenger en profesjonell nettside
-            uten unødvendig styr.
+            Jeg åpner nå for fem enkle bedriftsnettsider til fast pris. Tilbudet
+            passer for håndverkere og små bedrifter som trenger en profesjonell
+            nettside uten unødvendig styr.
           </p>
         </Reveal>
         <Reveal delay={0.08} className="offer-card">
-          <p className="offer-price">9 999 NOK</p>
+          <p className="offer-price">9 999 kr</p>
           <p className="offer-price-description">Fast pris for en enkel nettside</p>
           <ul className="offer-inclusions">
             <li>Én tydelig og mobilvennlig nettside</li>

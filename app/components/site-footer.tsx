@@ -8,9 +8,9 @@ export default function SiteFooter() {
       <div className="page-container footer-content">
         <div>
           <a href="#home" className="footer-logo">
-            BART<span>VDB</span>
+            BARTHOLOMEUS<span>BERG</span>
           </a>
-          <p>IT, nettsider og teknisk hjelp for små bedrifter og privatpersoner i Bergen.</p>
+          <p>Nettsider, PC-hjelp og praktisk IT-hjelp i Arna og Bergen.</p>
         </div>
         <div className="footer-details">
           <p>© {copyrightYear} Bart van den Berg</p>

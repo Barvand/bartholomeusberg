@@ -1,11 +1,7 @@
 "use client";
 import { motion, useReducedMotion } from "motion/react";
 const item = { hidden: { opacity: 0, y: 20 }, show: { opacity: 1, y: 0 } };
-export default function HeroContent({
-  alignRight = false,
-}: {
-  alignRight?: boolean;
-}) {
+export default function HeroContent() {
   const reduceMotion = useReducedMotion();
   const transition = (duration: number) => ({
     duration: reduceMotion ? 0.15 : duration,
@@ -13,7 +9,7 @@ export default function HeroContent({
   });
   return (
     <motion.div
-      className={alignRight ? "md:text-right" : undefined}
+      className="text-center"
       initial="hidden"
       animate="show"
       variants={{
@@ -31,7 +27,7 @@ export default function HeroContent({
         variants={item}
         transition={transition(0.46)}
       >
-        IT · WEB · SECURITY · BERGEN
+        IT · NETTSIDER · BERGEN
       </motion.p>
       <motion.h1
         className="my-4 max-w-207.5 font-display text-5xl font-semibold leading-[0.96] tracking-[-0.065em] sm:text-6xl md:text-7xl lg:text-8xl xl:text-[6.7rem]"
@@ -47,11 +43,11 @@ export default function HeroContent({
         variants={item}
         transition={transition(0.5)}
       >
-        Nettsider, PC-hjelp, IT og digitale løsninger for små bedrifter og
-        privatpersoner i Bergen.
+        Nettsider, PC-hjelp og praktisk IT-hjelp for privatpersoner og små
+        bedrifter i Arna og Bergen.
       </motion.p>
       <motion.div
-        className={`mt-8 flex flex-wrap gap-3 ${alignRight ? "md:justify-end" : ""}`}
+        className="mt-8 flex flex-wrap justify-center gap-3"
         variants={item}
         transition={transition(0.46)}
       >

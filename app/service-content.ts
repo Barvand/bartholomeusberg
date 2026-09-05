@@ -1,11 +1,12 @@
 export type Service = {
-  slug: "nettsider" | "pc-it" | "bedrifts-it" | "it-sikkerhet";
+  slug: "nettsider" | "pc-it" | "bedrifts-it";
   tag: string;
   title: string;
   description: string;
   features: string[];
   intro: string;
   details: string[];
+  group: "web" | "it";
 };
 
 export const serviceAreas: Service[] = [
@@ -13,6 +14,7 @@ export const serviceAreas: Service[] = [
     slug: "nettsider",
     tag: "Nettsider",
     title: "Nettsider som gjør jobben",
+    group: "web",
     description:
       "Profesjonelle nettsider og digitale løsninger som er raske, tydelige og enkle å bruke.",
     features: [
@@ -33,6 +35,7 @@ export const serviceAreas: Service[] = [
   {
     slug: "pc-it",
     tag: "PC & IT",
+    group: "it",
     title: "Når teknologien ikke spiller på lag",
     description:
       "Hjelp med PC, programvare og utstyr – uten unødvendig teknisk språk.",
@@ -47,49 +50,30 @@ export const serviceAreas: Service[] = [
     details: [
       "Feilsøking på PC og laptop",
       "SSD- og RAM-oppgraderinger",
-      "Windows-installasjon, programvare og skadevareopprydding",
+      "Windows, programvare og fjerning av skadevare",
       "Dataflytting, backup og oppsett av ny datamaskin",
     ],
   },
   {
     slug: "bedrifts-it",
     tag: "Bedrifts-IT",
+    group: "it",
     title: "IT for små bedrifter",
     description:
       "Praktisk IT-hjelp for bedrifter som ikke trenger en egen IT-avdeling.",
     features: [
-      "PC-er og brukere",
-      "Wi-Fi og nettverk",
-      "Backup og lagring",
+      "PC-er og brukeroppsett",
       "E-post og Microsoft 365",
+      "Programvare og arbeidsstasjoner",
+      "Generell IT-hjelp",
     ],
     intro:
-      "For små bedrifter skal IT støtte arbeidet, ikke ta tid fra det. Jeg hjelper med oppsett, forbedringer og løpende teknisk støtte, fra arbeidsstasjoner til nettverk og lagring.",
+      "For små bedrifter skal IT støtte arbeidet, ikke ta tid fra det. Jeg hjelper med oppsett av PC-er og brukere, e-post, programvare og generell teknisk støtte.",
     details: [
-      "Oppsett av ansatte, PC-er og arbeidsstasjoner",
+      "Oppsett av PC-er og brukere",
       "E-post og Microsoft 365",
-      "Wi-Fi, rutere og enkel nettverksfeilsøking",
-    ],
-  },
-  {
-    slug: "it-sikkerhet",
-    tag: "Sikkerhet",
-    title: "Enklere og tryggere IT",
-    description:
-      "Praktiske sikkerhetstiltak som reduserer risiko uten å gjøre arbeidshverdagen vanskeligere.",
-    features: [
-      "MFA og passord",
-      "Backup",
-      "Sikring av PC-er",
-      "Nettverk og router",
-    ],
-    intro:
-      "God IT-sikkerhet i en liten bedrift handler ofte om å få på plass det grunnleggende. Jeg hjelper med tiltak som gir bedre kontroll og mindre risiko, uten å gjøre hverdagen unødvendig komplisert.",
-    details: [
-      "MFA, passordadministratorer og kontosikkerhet",
-      "Backupstrategi og kontroll av gjenoppretting",
-      "Enkel sikring og oppdatering av PC-er",
-      "Router-, nettverks- og sikker tilgang på avstand",
+      "Programvare og brukeroppsett",
+      "Generell IT-hjelp og feilsøking",
     ],
   },
 ];

@@ -117,7 +117,7 @@ export default function ContactForm() {
           <div ref={container} aria-label="Botbeskyttelse" />
         ) : (
           <p className="text-sm text-amber-200">
-            Botbeskyttelse er ikke konfigurert ennå.
+            Skjemaet er midlertidig utilgjengelig. Prøv igjen senere.
           </p>
         )}
         <button
@@ -127,7 +127,7 @@ export default function ContactForm() {
           {status === "sending" ? "Sender…" : "Send forespørsel"}
         </button>
         {status === "success" && (
-          <p className="m-0 text-emerald-300">Takk! Jeg tar kontakt snart.</p>
+          <p className="m-0 text-emerald-300">Takk! Jeg tar kontakt så snart jeg kan.</p>
         )}
         {status === "error" && (
           <p className="m-0 text-red-300">

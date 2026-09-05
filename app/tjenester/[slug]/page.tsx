@@ -10,13 +10,18 @@ export function generateStaticParams() {
 }
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const service = getService((await params).slug);
-  return service
-    ? {
-        title: service.tag,
-        description: `${service.description} BART VDB hjelper små bedrifter og privatpersoner i Bergen.`,
-        alternates: { canonical: `/tjenester/${service.slug}` },
-      }
-    : {};
+  if (!service) return {};
+
+  const title = `${service.tag} i Arna og Bergen`;
+  const description = `${service.description} Bartholomeus Berg hjelper små bedrifter og privatpersoner i Arna og Bergen.`;
+
+  return {
+    title,
+    description,
+    alternates: { canonical: `/tjenester/${service.slug}` },
+    openGraph: { title: `${title} | Bartholomeus Berg`, description },
+    twitter: { title: `${title} | Bartholomeus Berg`, description },
+  };
 }
 export default async function ServicePage({ params }: Props) {
   const service = getService((await params).slug);
@@ -30,7 +35,7 @@ export default async function ServicePage({ params }: Props) {
             <Link href="/tjenester" className="back-link">
               ← Alle tjenester
             </Link>
-            <p className="eyebrow eyebrow-light">{service.tag} · Bergen</p>
+            <p className="eyebrow eyebrow-light">{service.tag} · Arna og Bergen</p>
             <h1 className="section-heading">{service.title}</h1>
             <p className="section-intro">{service.intro}</p>
           </div>

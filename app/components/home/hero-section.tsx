@@ -10,12 +10,21 @@ export default function HeroSection() {
         fill
         priority
         sizes="100vw"
-        className="home-hero-image"
+        className="home-hero-image home-hero-image-desktop"
+      />
+      <Image
+        src="/hero-mobile.png"
+        alt="Bart van den Berg"
+        fill
+        priority
+        sizes="100vw"
+        quality={90}
+        className="home-hero-image home-hero-image-mobile"
       />
       <div className="home-hero-overlay" />
       <div className="page-container home-hero-content">
         <div className="home-hero-copy">
-          <HeroContent alignRight />
+          <HeroContent />
         </div>
       </div>
     </section>
