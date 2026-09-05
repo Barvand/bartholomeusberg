@@ -1,6 +1,7 @@
-# BART VDB
+# Bartholomeus Berg
 
-This is the website for my own business, BART VDB.
+This is the website for my own business, Bartholomeus Berg
+.
 
 I originally built the site mainly around web development, but the idea has grown into something broader. I want to offer practical tech services for private customers and small businesses in Bergen, ranging from websites and custom web applications to PC help, IT support and basic security.
 
