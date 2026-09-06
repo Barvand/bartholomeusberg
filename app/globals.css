@@ -309,8 +309,10 @@
   }
   .home-hero-image-mobile {
     display: block;
+    object-position: center bottom;
   }
   .home-hero {
+    height: clamp(34rem, 78svh, 42rem);
     align-items: flex-end;
   }
   .home-hero-overlay {
