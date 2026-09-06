@@ -8,7 +8,8 @@ export default function SiteFooter() {
       <div className="page-container footer-content">
         <div>
           <a href="#home" className="footer-logo">
-            BARTHOLOMEUS<span>BERG</span>
+            <img src="/BartBergLogo.svg" alt="Bart Berg" />
+            <span className="site-logo__tagline">Nettsider · PC &amp; IT</span>
           </a>
           <p>Nettsider, PC-hjelp og praktisk IT-hjelp i Arna og Bergen.</p>
         </div>
@@ -16,6 +17,7 @@ export default function SiteFooter() {
           <p>© {copyrightYear} Bart van den Berg</p>
           <p>Org.nr. {organisationNumber}</p>
           <a href="#contact">Ta kontakt</a>
+          <a href="/personvern#informasjonskapsler">Personvern og informasjonskapsler</a>
         </div>
       </div>
     </footer>

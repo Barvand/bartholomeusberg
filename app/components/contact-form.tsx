@@ -1,5 +1,6 @@
 "use client";
 import Script from "next/script";
+import { useRouter } from "next/navigation";
 import { FormEvent, useRef, useState } from "react";
 declare global {
   interface Window {
@@ -20,6 +21,7 @@ export default function ContactForm() {
   const [status, setStatus] = useState<
     "idle" | "sending" | "success" | "error"
   >("idle");
+  const router = useRouter();
   const [token, setToken] = useState<string | null>(null);
   const container = useRef<HTMLDivElement>(null);
   const widget = useRef<string | undefined>(undefined);
@@ -54,7 +56,7 @@ export default function ContactForm() {
     });
     if (response.ok) {
       form.reset();
-      setStatus("success");
+      router.push("/takk");
     } else setStatus("error");
     setToken(null);
     window.turnstile?.reset(widget.current);
