@@ -92,14 +92,12 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
                 Slik løste jeg det
               </h2>
               <ol className="mt-5 space-y-4">
-                {project.approach.map((item, index) => (
+                {project.approach.map((item) => (
                   <li
                     className="grid grid-cols-[2rem_1fr] gap-3 leading-7"
                     key={item}
                   >
-                    <span className="font-display text-xl text-fjord-200">
-                      0{index + 1}
-                    </span>
+                    <span className="mt-3 h-px w-5 bg-fjord-200" aria-hidden="true" />
                     <span>{item}</span>
                   </li>
                 ))}

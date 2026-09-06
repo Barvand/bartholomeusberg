@@ -88,9 +88,9 @@ export default function ServicesPage() {
               enklere.
             </p>
             <div className="service-editorial-list">
-              {websiteServices.map((service, index) => (
+              {websiteServices.map((service) => (
                 <article className="service-editorial-row" key={service.title}>
-                  <span>{String(index + 1).padStart(2, "0")}</span>
+                  <span className="editorial-mark" aria-hidden="true" />
                   <div>
                     <h3>{service.title}</h3>
                     <p>{service.description}</p>
@@ -114,9 +114,9 @@ export default function ServicesPage() {
               det som faktisk skal fungere.
             </p>
             <div className="service-editorial-list">
-              {itServices.map((service, index) => (
+              {itServices.map((service) => (
                 <article className="service-editorial-row" key={service.title}>
-                  <span>{String(index + 1).padStart(2, "0")}</span>
+                  <span className="editorial-mark" aria-hidden="true" />
                   <div>
                     <h3>{service.title}</h3>
                     <p>{service.description}</p>

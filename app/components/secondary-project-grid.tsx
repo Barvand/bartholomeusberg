@@ -4,14 +4,12 @@ type SecondaryProject = (typeof projects)[number];
 
 function SecondaryProjectRow({
   project,
-  number,
 }: {
   project: SecondaryProject;
-  number: number;
 }) {
   return (
     <article className="secondary-project">
-      <p className="secondary-project-number">{String(number).padStart(2, "0")}</p>
+      <span className="secondary-project-mark" aria-hidden="true" />
       <div className="secondary-project-content">
         <p className="secondary-project-meta">
           {project.type}
@@ -46,11 +44,10 @@ export default function SecondaryProjectGrid({
 }) {
   return (
     <div className="secondary-project-grid">
-      {projectList.map((project, index) => (
+      {projectList.map((project) => (
         <SecondaryProjectRow
           key={project.slug}
           project={project}
-          number={index + 3}
         />
       ))}
     </div>

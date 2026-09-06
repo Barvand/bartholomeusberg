@@ -37,9 +37,9 @@ export default function ServicesSection() {
           privatpersoner og små bedrifter.
         </p>
         <div className="service-editorial-list home-service-list">
-          {services.map((service, index) => (
+          {services.map((service) => (
             <article className="service-editorial-row" key={service.title}>
-              <span>{String(index + 1).padStart(2, "0")}</span>
+              <span className="editorial-mark" aria-hidden="true" />
               <div>
                 <h3>{service.title}</h3>
                 <p>{service.description}</p>

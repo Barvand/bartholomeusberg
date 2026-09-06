@@ -54,40 +54,215 @@
 }
 
 /* Cookie consent */
-.footer-details a { display: block; }
-.cookie-banner { position: fixed; z-index: 50; right: 1rem; bottom: 1rem; left: 1rem; border: 1px solid rgb(229 239 244 / 0.25); background: var(--color-fjord-950); box-shadow: 0 1.25rem 3.75rem rgb(9 29 43 / 0.35); color: var(--color-fjord-50); }
-.cookie-banner__content { display: grid; gap: 1.5rem; max-width: 72rem; margin: auto; padding: 1.5rem; }
-.cookie-banner__eyebrow { margin: 0 0 0.5rem; color: var(--color-fjord-200); font-size: 0.7rem; font-weight: 700; letter-spacing: 0.16em; text-transform: uppercase; }
-.cookie-banner h2, .privacy-page h1, .privacy-page h2 { margin: 0; font-family: var(--font-display); letter-spacing: -0.035em; }
-.cookie-banner h2 { font-size: 1.45rem; }
-.cookie-banner p:not(.cookie-banner__eyebrow) { max-width: 44rem; margin: 0.65rem 0 0; color: rgb(229 239 244 / 0.82); font-size: 0.9rem; line-height: 1.5rem; }
-.cookie-banner a { display: inline-block; margin-top: 0.85rem; color: var(--color-fjord-200); font-size: 0.875rem; font-weight: 700; }
-.cookie-banner a:hover { color: white; }
-.cookie-banner__actions { display: grid; grid-template-columns: 1fr 1fr; gap: 0.75rem; align-self: end; }
-.cookie-banner__button, .cookie-settings-button { min-height: 2.875rem; border: 1px solid var(--color-fjord-200); border-radius: 0.25rem; background: var(--color-fjord-200); color: var(--color-fjord-950); font: inherit; font-size: 0.875rem; font-weight: 700; cursor: pointer; }
-.cookie-banner__button--secondary { background: transparent; color: var(--color-fjord-50); }
-.cookie-banner__button:hover, .cookie-settings-button:hover { background: white; color: var(--color-fjord-950); }
-.cookie-banner__button:focus-visible, .cookie-settings-button:focus-visible { outline: 3px solid white; outline-offset: 3px; }
-.privacy-page { min-height: 75vh; padding: 8rem 0 5rem; background: var(--color-fjord-50); color: var(--color-fjord-950); }
-.privacy-page__content { max-width: 48rem; }
-.privacy-page__back { display: inline-block; margin-bottom: 3rem; color: var(--color-fjord-700); font-size: 0.875rem; font-weight: 700; }
-.privacy-page h1 { font-size: clamp(2.5rem, 7vw, 4.5rem); line-height: 1; }
-.privacy-page section { margin-top: 3rem; padding: 2rem; border: 1px solid var(--color-fjord-200); background: white; }
-.privacy-page h2 { font-size: 1.65rem; }
-.privacy-page section p { color: #475569; line-height: 1.7; }
-.cookie-settings-button { padding: 0.75rem 1.1rem; margin-top: 0.5rem; }
-@media (min-width: 768px) { .cookie-banner { right: 1.5rem; bottom: 1.5rem; left: 1.5rem; } .cookie-banner__content { grid-template-columns: 1fr auto; align-items: end; padding: 1.75rem 2rem; } .cookie-banner__actions { min-width: 13.5rem; } }
+.footer-details a {
+  display: block;
+}
+.cookie-banner {
+  position: fixed;
+  z-index: 50;
+  right: 1rem;
+  bottom: 1rem;
+  left: 1rem;
+  border: 1px solid rgb(229 239 244 / 0.25);
+  background: var(--color-fjord-950);
+  box-shadow: 0 1.25rem 3.75rem rgb(9 29 43 / 0.35);
+  color: var(--color-fjord-50);
+}
+.cookie-banner__content {
+  display: grid;
+  gap: 1.5rem;
+  max-width: 72rem;
+  margin: auto;
+  padding: 1.5rem;
+}
+.cookie-banner__eyebrow {
+  margin: 0 0 0.5rem;
+  color: var(--color-fjord-200);
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+}
+.cookie-banner h2,
+.privacy-page h1,
+.privacy-page h2 {
+  margin: 0;
+  font-family: var(--font-display);
+  letter-spacing: -0.035em;
+}
+.cookie-banner h2 {
+  font-size: 1.45rem;
+}
+.cookie-banner p:not(.cookie-banner__eyebrow) {
+  max-width: 44rem;
+  margin: 0.65rem 0 0;
+  color: rgb(229 239 244 / 0.82);
+  font-size: 0.9rem;
+  line-height: 1.5rem;
+}
+.cookie-banner a {
+  display: inline-block;
+  margin-top: 0.85rem;
+  color: var(--color-fjord-200);
+  font-size: 0.875rem;
+  font-weight: 700;
+}
+.cookie-banner a:hover {
+  color: white;
+}
+.cookie-banner__actions {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.75rem;
+  align-self: end;
+}
+.cookie-banner__button,
+.cookie-settings-button {
+  min-height: 2.875rem;
+  border: 1px solid var(--color-fjord-200);
+  border-radius: 0.25rem;
+  background: var(--color-fjord-200);
+  color: var(--color-fjord-950);
+  font: inherit;
+  font-size: 0.875rem;
+  font-weight: 700;
+  cursor: pointer;
+}
+.cookie-banner__button--secondary {
+  background: transparent;
+  color: var(--color-fjord-50);
+}
+.cookie-banner__button:hover,
+.cookie-settings-button:hover {
+  background: white;
+  color: var(--color-fjord-950);
+}
+.cookie-banner__button:focus-visible,
+.cookie-settings-button:focus-visible {
+  outline: 3px solid white;
+  outline-offset: 3px;
+}
+.privacy-page {
+  min-height: 75vh;
+  padding: 8rem 0 5rem;
+  background: var(--color-fjord-50);
+  color: var(--color-fjord-950);
+}
+.privacy-page__content {
+  max-width: 48rem;
+}
+.privacy-page__back {
+  display: inline-block;
+  margin-bottom: 3rem;
+  color: var(--color-fjord-700);
+  font-size: 0.875rem;
+  font-weight: 700;
+}
+.privacy-page h1 {
+  font-size: clamp(2.5rem, 7vw, 4.5rem);
+  line-height: 1;
+}
+.privacy-page section {
+  margin-top: 3rem;
+  padding: 2rem;
+  border: 1px solid var(--color-fjord-200);
+  background: white;
+}
+.privacy-page h2 {
+  font-size: 1.65rem;
+}
+.privacy-page section p {
+  color: #475569;
+  line-height: 1.7;
+}
+.cookie-settings-button {
+  padding: 0.75rem 1.1rem;
+  margin-top: 0.5rem;
+}
+@media (min-width: 768px) {
+  .cookie-banner {
+    right: 1.5rem;
+    bottom: 1.5rem;
+    left: 1.5rem;
+  }
+  .cookie-banner__content {
+    grid-template-columns: 1fr auto;
+    align-items: end;
+    padding: 1.75rem 2rem;
+  }
+  .cookie-banner__actions {
+    min-width: 13.5rem;
+  }
+}
 
 /* Not found and confirmation pages */
-.utility-page { position: relative; display: flex; align-items: center; overflow: hidden; min-height: 40rem; padding: 8rem 0 5rem; background: var(--color-fjord-950); color: white; }
-.utility-page__content { position: relative; max-width: 46rem; margin-inline: auto; text-align: center; }
-.utility-page__number, .utility-page__check { margin: 0 0 1rem; color: var(--color-fjord-200); font-family: var(--font-display); font-size: clamp(3.5rem, 12vw, 7.5rem); font-weight: 600; letter-spacing: -0.09em; line-height: 0.8; }
-.utility-page__check { font-size: clamp(2.5rem, 7vw, 4rem); letter-spacing: -0.06em; }
-.utility-page h1 { max-width: 38rem; margin: 0 auto; font-family: var(--font-display); font-size: clamp(2.75rem, 7vw, 5.5rem); font-weight: 600; letter-spacing: -0.06em; line-height: 0.98; }
-.utility-page h1 em { color: var(--color-fjord-200); font-style: normal; }
-.utility-page__content > p:not(.utility-page__number):not(.utility-page__check):not(.eyebrow) { max-width: 35rem; margin: 1.5rem auto 0; color: rgb(229 239 244 / 0.8); font-size: 1.06rem; line-height: 1.75rem; }
-.utility-page__button { display: inline-flex; align-items: center; justify-content: center; min-height: 3rem; margin-top: 2rem; padding: 0.75rem 1.25rem; border-radius: 0.25rem; background: var(--color-fjord-200); color: var(--color-fjord-950); font-size: 0.875rem; font-weight: 700; }
-.utility-page__button:hover { background: white; }
+.utility-page {
+  position: relative;
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+  min-height: 40rem;
+  padding: 8rem 0 5rem;
+  background: var(--color-fjord-950);
+  color: white;
+}
+.utility-page__content {
+  position: relative;
+  max-width: 46rem;
+  margin-inline: auto;
+  text-align: center;
+}
+.utility-page__number,
+.utility-page__check {
+  margin: 0 0 1rem;
+  color: var(--color-fjord-200);
+  font-family: var(--font-display);
+  font-size: clamp(3.5rem, 12vw, 7.5rem);
+  font-weight: 600;
+  letter-spacing: -0.09em;
+  line-height: 0.8;
+}
+.utility-page__check {
+  font-size: clamp(2.5rem, 7vw, 4rem);
+  letter-spacing: -0.06em;
+}
+.utility-page h1 {
+  max-width: 38rem;
+  margin: 0 auto;
+  font-family: var(--font-display);
+  font-size: clamp(2.75rem, 7vw, 5.5rem);
+  font-weight: 600;
+  letter-spacing: -0.06em;
+  line-height: 0.98;
+}
+.utility-page h1 em {
+  color: var(--color-fjord-200);
+  font-style: normal;
+}
+.utility-page__content
+  > p:not(.utility-page__number):not(.utility-page__check):not(.eyebrow) {
+  max-width: 35rem;
+  margin: 1.5rem auto 0;
+  color: rgb(229 239 244 / 0.8);
+  font-size: 1.06rem;
+  line-height: 1.75rem;
+}
+.utility-page__button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 3rem;
+  margin-top: 2rem;
+  padding: 0.75rem 1.25rem;
+  border-radius: 0.25rem;
+  background: var(--color-fjord-200);
+  color: var(--color-fjord-950);
+  font-size: 0.875rem;
+  font-weight: 700;
+}
+.utility-page__button:hover {
+  background: white;
+}
 
 /* Home page: component-level classes keep layout decisions out of JSX. */
 .page-container {
@@ -97,8 +272,7 @@
 .home-hero {
   position: relative;
   display: flex;
-  height: 100vh;
-  min-height: 41.875rem;
+  min-height: 100vh;
   max-height: 60rem;
   align-items: center;
   overflow: hidden;
@@ -389,7 +563,10 @@
   align-items: flex-start;
   color: white;
 }
-.site-logo__mark { width: auto; height: 2.5rem; }
+.site-logo__mark {
+  width: auto;
+  height: 2.5rem;
+}
 .site-logo__tagline {
   margin-top: 0.18rem;
   color: var(--color-fjord-200);
@@ -471,7 +648,9 @@
     grid-template-columns: 1fr auto;
     align-items: end;
   }
-  .site-logo__mark { height: 3rem; }
+  .site-logo__mark {
+    height: 3rem;
+  }
   .footer-details {
     text-align: right;
   }
@@ -565,6 +744,15 @@
   font-family: var(--font-display);
   font-size: 0.9rem;
   font-weight: 700;
+}
+.service-editorial-row > .editorial-mark,
+.secondary-project-mark {
+  align-self: start;
+  display: block;
+  width: 1.25rem;
+  height: 1px;
+  margin-top: 0.65rem;
+  background: currentColor;
 }
 .service-editorial-row h3 {
   margin: 0;
@@ -919,14 +1107,8 @@
   padding: 1.5rem 0;
   border-top: 1px solid rgb(229 239 244 / 0.18);
 }
-.secondary-project-number {
-  margin: 0;
+.secondary-project-mark {
   color: var(--color-fjord-200);
-  font-family: var(--font-display);
-  font-size: 1.15rem;
-  font-weight: 600;
-  letter-spacing: -0.03em;
-  line-height: 1;
 }
 .secondary-project-content {
   min-width: 0;

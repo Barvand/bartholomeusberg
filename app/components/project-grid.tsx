@@ -12,11 +12,9 @@ type Props = { projectList: typeof projects; tone: Tone; customer?: boolean };
 function ProjectCard({
   project,
   tone,
-  number,
 }: {
   project: (typeof projects)[number];
   tone: Tone;
-  number: number;
 }) {
   const reduceMotion = useReducedMotion();
   const isDetailed = "intro" in project;
@@ -59,7 +57,7 @@ function ProjectCard({
       </div>
       <div className="project-card-copy">
         <p className="project-card-meta">
-          <span>{String(number).padStart(2, "0")}</span> {project.type}
+          {project.type}
           {project.year && ` · ${project.year}`}
         </p>
         <h3>{project.name}</h3>
@@ -84,12 +82,11 @@ export default function ProjectGrid({
     <Stagger
       className={`project-grid project-grid-${tone}${customer ? " project-grid-customer" : ""}`}
     >
-      {projectList.map((project, index) => (
+      {projectList.map((project) => (
         <StaggerItem key={project.name}>
           <ProjectCard
             project={project}
             tone={tone}
-            number={customer ? index + 2 : index + 3}
           />
         </StaggerItem>
       ))}

@@ -34,7 +34,7 @@ export default function TotalTimingShowcase() {
     <section ref={section} className="total-timing-feature">
       <div className="total-timing-layout">
         <Reveal className="total-timing-copy">
-          <p className="reference-number">01 / Utvalgt prosjekt · 2026</p>
+          <p className="reference-number">Utvalgt prosjekt · 2026</p>
           <AccentLine className="mt-4 max-w-24" />
           <h3>TotalTiming</h3>
           <div className="total-timing-story">
