@@ -49,6 +49,7 @@ export const metadata: Metadata = {
 export default async function RootLayout({
   children,
 }: Readonly<{ children: React.ReactNode }>) {
+  const googleTagId = process.env.NEXT_PUBLIC_GOOGLE_TAG_ID;
   const storedConsent = (await cookies()).get("bart_cookie_consent")?.value;
   const initialConsent: ConsentChoice | null =
     storedConsent === "accepted" || storedConsent === "rejected"
@@ -70,6 +71,21 @@ export default async function RootLayout({
             window.__cookieConsentDefaultsSet = true;
           })();
         `}</Script>
+        {googleTagId && (
+          <>
+            <Script
+              id="google-tag-loader"
+              src={`https://www.googletagmanager.com/gtag/js?id=${googleTagId}`}
+              strategy="afterInteractive"
+            />
+            <Script id="google-tag-config" strategy="afterInteractive">{`
+              window.dataLayer = window.dataLayer || [];
+              window.gtag = window.gtag || function () { window.dataLayer.push(arguments); };
+              window.gtag('js', new Date());
+              window.gtag('config', '${googleTagId}');
+            `}</Script>
+          </>
+        )}
         {children}
         <SiteFooter />
         <CookieConsent initialChoice={initialConsent} />
