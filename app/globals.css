@@ -304,6 +304,10 @@
   padding-top: 4rem;
 }
 @media (max-width: 767px) {
+  .home-hero-image {
+    /* Keep the portrait, which sits left in the source image, near the viewport center. */
+    object-position: 15% center;
+  }
   .home-hero-image-desktop {
     display: none;
   }
