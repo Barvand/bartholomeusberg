@@ -6,6 +6,9 @@ const nextConfig: NextConfig = {
   distDir: process.env.NEXT_DIST_DIR || ".next",
   images: {
     formats: ["image/avif", "image/webp"],
+    // Next's built-in optimizer fails on Netlify ("isn't a valid image"),
+    // so serve images directly as before.
+    unoptimized: true,
   },
 };
 
