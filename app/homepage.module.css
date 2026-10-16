@@ -589,19 +589,20 @@
 
 /* Phone: the mockup bleeds edge to edge. */
 @media (max-width: 767px) {
-  /* Crop into the light/dark seam instead of shrinking the whole frame. */
+  /* Trim the PNG's backdrop so the browser window (x 240–2960, y 219–2003
+     of 3200 × 2200) spans the full screen width. */
   .homepage {
-    --bridge-mobile: calc(100cqw * 0.46);
+    --bridge-mobile: calc(100cqw * 0.3);
   }
   .heroFigure {
     overflow: hidden;
-    aspect-ratio: 1 / 1;
+    aspect-ratio: 2720 / 1784;
   }
   .heroFigure img {
     position: absolute;
-    top: -9%;
-    left: -38%;
-    width: 178%;
+    top: -12.28%;
+    left: -8.82%;
+    width: 117.65%;
     max-width: none;
     box-shadow: none;
   }

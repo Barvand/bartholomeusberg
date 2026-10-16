@@ -331,7 +331,7 @@ export default function HomePage() {
               Bak arbeidet står jeg.
             </h2>
             <p className={styles.aboutLead}>
-              Jeg heter Bartholomeus Berg. Jeg liker å bygge ting, forstå
+              Jeg heter Bart. Jeg liker å bygge ting, forstå
               hvorfor noe ikke virker og finne løsninger som er lette å bruke.
               Derfor samler jeg utvikling og praktisk IT-hjelp på ett sted.
             </p>

@@ -1,12 +1,7 @@
 "use client";
 import Link from "next/link";
 import { useEffect, useRef, useState } from "react";
-const links = [
-  ["Tjenester", "/tjenester"],
-  ["Tilbud", "/#offer"],
-  ["Referanser", "/#projects"],
-  ["Om meg", "/#about"],
-] as const;
+import { navLinks as links } from "./nav-links";
 
 type Tone = "light" | "dark";
 

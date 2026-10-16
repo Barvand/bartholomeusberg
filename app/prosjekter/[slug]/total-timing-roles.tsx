@@ -36,7 +36,7 @@ const roles: Role[] = [
     menu: ["Mine timer", "Bilder og filer", "Last opp notater", "Ledige timer"],
     features: [
       {
-        title: "Før timer på riktig sted.",
+        title: "Alle timene samlet på ett sted.",
         text: "Velg prosjekt for vanlig arbeid, eller internt arbeid og fravær når det passer. Siste registrering kan gjentas med ett klikk. Hvis prosjektlederen avviser en time, står begrunnelsen øverst, og den ansatte registrerer en korrigert time.",
         image: employeeTime,
         alt: "TotalTiming på bærbar PC i mørk modus: siden Mine timer med en avvist registrering og skjemaet for å registrere arbeidstid",
@@ -107,7 +107,11 @@ export default function TotalTimingRoles() {
       </header>
 
       {roles.map((role) => (
-        <section className={styles.role} key={role.id} aria-labelledby={`role-${role.id}`}>
+        <section
+          className={styles.role}
+          key={role.id}
+          aria-labelledby={`role-${role.id}`}
+        >
           <header className={styles.roleHead}>
             <h3 id={`role-${role.id}`}>{role.title}</h3>
             <p>{role.intro}</p>
@@ -122,7 +126,10 @@ export default function TotalTimingRoles() {
           </header>
           <ul className={styles.features}>
             {role.features.map((feature) => (
-              <li className={feature.image ? undefined : styles.textOnly} key={feature.title}>
+              <li
+                className={feature.image ? undefined : styles.textOnly}
+                key={feature.title}
+              >
                 {feature.image && (
                   <figure className={styles.figure}>
                     <Image
@@ -149,8 +156,8 @@ export default function TotalTimingRoles() {
           sizes="(max-width: 1300px) 100vw, 1240px"
         />
         <figcaption>
-          <strong>Lys og mørk modus.</strong> Alle brukere kan bytte mellom
-          lys og mørk modus fra menyen.
+          <strong>Lys og mørk modus.</strong> Alle brukere kan bytte mellom lys
+          og mørk modus fra menyen.
         </figcaption>
       </figure>
     </section>
