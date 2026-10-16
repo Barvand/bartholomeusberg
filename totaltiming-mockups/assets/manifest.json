@@ -1,0 +1,68 @@
+[
+  {
+    "file": "totaltiming-laptop-admin-dashboard.png",
+    "title": "Laptop: arbeidsoversikt (admin)",
+    "width": 3200,
+    "height": 2000
+  },
+  {
+    "file": "totaltiming-laptop-employee-time.png",
+    "title": "Laptop: timeregistrering (mørk)",
+    "width": 3200,
+    "height": 2000
+  },
+  {
+    "file": "totaltiming-browser-admin-shifts.png",
+    "title": "Nettleser: legg ut vakter",
+    "width": 3200,
+    "height": 2200
+  },
+  {
+    "file": "totaltiming-browser-activity-dark.png",
+    "title": "Nettleser: aktivitet (mørk)",
+    "width": 3200,
+    "height": 2200
+  },
+  {
+    "file": "totaltiming-browser-project.png",
+    "title": "Nettleser: prosjektdetaljer",
+    "width": 3200,
+    "height": 2200
+  },
+  {
+    "file": "totaltiming-theme-split-approval.png",
+    "title": "Lys og mørk: prosjektgodkjenning",
+    "width": 3200,
+    "height": 2200
+  },
+  {
+    "file": "totaltiming-phones-light.png",
+    "title": "Mobil: vakter, timer, godkjenning",
+    "width": 3200,
+    "height": 2200
+  },
+  {
+    "file": "totaltiming-phones-dark.png",
+    "title": "Mobil: oversikt, timer, vakter (mørk)",
+    "width": 3200,
+    "height": 2200
+  },
+  {
+    "file": "totaltiming-layered.png",
+    "title": "Lagdelt komposisjon",
+    "width": 3200,
+    "height": 2252
+  },
+  {
+    "file": "totaltiming-layered-transparent.png",
+    "title": "Lagdelt, transparent (erstatning for showcase-totaltiming.svg)",
+    "width": 3200,
+    "height": 2252
+  },
+  {
+    "file": "totaltiming-feature-banner.png",
+    "title": "Prosjektbanner med tekst",
+    "width": 3200,
+    "height": 1800
+  }
+]

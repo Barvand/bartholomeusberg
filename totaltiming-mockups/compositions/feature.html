@@ -1,0 +1,20 @@
+<!doctype html>
+<html lang="nb"><head><meta charset="utf-8"><title>Feature</title>
+<link rel="stylesheet" href="devices.css"></head>
+<body style="--canvas-w:1600px;--canvas-h:900px;background:var(--fjord-950);color:var(--fjord-50)">
+<script type="module">
+import { laptop, phone, contours } from "./devices.js";
+const facts = [["Ansatte", "Timer, vakter og poeng"], ["Prosjektledere", "Godkjenning per prosjekt"], ["Administrasjon", "Prosjekter, vakter og aktivitet"]];
+document.body.innerHTML = contours({ width: 1600, height: 900, color: "var(--fjord-900)", count: 15, seed: 13 })
+  + `<div class="abs" style="left:96px;top:150px;width:470px">
+      <p class="eyebrow" style="margin:0;color:var(--fjord-200)">Utvalgt prosjekt · 2026</p>
+      <div class="rule" style="margin-top:22px;background:var(--fjord-500)"></div>
+      <h1 class="display" style="margin-top:30px;font-size:84px;line-height:.95">TotalTiming</h1>
+      <p style="margin:26px 0 0;font-size:21px;line-height:1.5;color:rgb(229 239 244 / .82)">Timeregistrering, vaktplanlegging og prosjektgodkjenning i én webapplikasjon for mobil og PC.</p>
+      <dl style="margin:44px 0 0;display:grid;gap:0;border-top:1px solid rgb(229 239 244 / .18)">
+        ${facts.map(([k, v]) => `<div style="display:flex;justify-content:space-between;gap:24px;padding:15px 0;border-bottom:1px solid rgb(229 239 244 / .18)"><dt class="label" style="color:var(--fjord-300)">${k}</dt><dd class="label" style="margin:0;font-weight:600">${v}</dd></div>`).join("")}
+      </dl></div>`
+  + `<div class="abs lift-dark" style="--w:820px;left:640px;top:180px">${laptop({ shot: "admin-dashboard", theme: "dark", w: 820 })}</div>`
+  + `<div class="abs lift-dark" style="--w:240px;left:1296px;top:345px">${phone({ shot: "employee-time", theme: "light", w: 250 })}</div>`;
+window.__layout = true;
+</script></body></html>

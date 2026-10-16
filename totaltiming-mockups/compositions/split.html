@@ -1,0 +1,15 @@
+<!doctype html>
+<html lang="nb"><head><meta charset="utf-8"><title>Theme split</title>
+<link rel="stylesheet" href="devices.css"></head>
+<body style="--canvas-w:1600px;--canvas-h:1100px;background:var(--fjord-50)">
+<script type="module">
+import { browser, contours, params } from "./devices.js";
+const shot = params.get("shot") ?? "pm-approval";
+const clip = "polygon(74% 0, 100% 0, 100% 100%, 58% 100%)";
+document.body.innerHTML = contours({ width: 1600, height: 1100, color: "var(--fjord-100)", count: 18, seed: 9 })
+  + `<div class="abs lift" style="--w:1360px;left:120px;top:110px">
+       <div style="position:relative">${browser({ shot, theme: "light", w: 1360 })}
+         <div style="position:absolute;inset:0;clip-path:${clip}">${browser({ shot, theme: "dark", w: 1360 })}</div>
+       </div></div>`;
+window.__layout = true;
+</script></body></html>

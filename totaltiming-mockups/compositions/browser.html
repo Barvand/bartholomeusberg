@@ -1,0 +1,11 @@
+<!doctype html>
+<html lang="nb"><head><meta charset="utf-8"><title>Browser</title>
+<link rel="stylesheet" href="devices.css"></head>
+<body style="--canvas-w:1600px;--canvas-h:1100px;background:var(--fjord-100)">
+<script type="module">
+import { browser, contours, params } from "./devices.js";
+const shot = params.get("shot") ?? "admin-shifts", theme = params.get("theme") ?? "light";
+document.body.innerHTML = contours({ width: 1600, height: 1100, color: "var(--fjord-200)", count: 18, seed: 3 })
+  + `<div class="abs lift" style="--w:1360px;left:120px;top:110px">${browser({ shot, theme, w: 1360 })}</div>`;
+window.__layout = true;
+</script></body></html>

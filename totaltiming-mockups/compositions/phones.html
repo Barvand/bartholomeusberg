@@ -1,0 +1,13 @@
+<!doctype html>
+<html lang="nb"><head><meta charset="utf-8"><title>Phones</title>
+<link rel="stylesheet" href="devices.css"></head>
+<body style="--canvas-w:1600px;--canvas-h:1100px;background:var(--fjord-800)">
+<script type="module">
+import { phone, contours, params } from "./devices.js";
+const theme = params.get("theme") ?? "light";
+const shots = (params.get("shots") ?? "employee-shifts,employee-time,pm-approval").split(",");
+const w = 340, gap = 90, left = (1600 - (3 * w + 2 * gap)) / 2;
+document.body.innerHTML = contours({ width: 1600, height: 1100, color: "var(--fjord-700)", count: 17, seed: 11 })
+  + shots.map((shot, i) => `<div class="abs lift-dark" style="--w:${w}px;left:${left + i * (w + gap)}px;top:${i === 1 ? 150 : 240}px">${phone({ shot, theme, w })}</div>`).join("");
+window.__layout = true;
+</script></body></html>

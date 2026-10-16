@@ -1,0 +1,11 @@
+<!doctype html>
+<html lang="nb"><head><meta charset="utf-8"><title>Laptop</title>
+<link rel="stylesheet" href="devices.css"></head>
+<body style="--canvas-w:1600px;--canvas-h:1000px;background:var(--fjord-950)">
+<script type="module">
+import { laptop, contours, params } from "./devices.js";
+const shot = params.get("shot") ?? "admin-dashboard", theme = params.get("theme") ?? "light";
+document.body.innerHTML = contours({ width: 1600, height: 1000, color: "var(--fjord-800)", count: 16, opacity: 0.7, seed: 7 })
+  + `<div class="abs lift-dark" style="--w:1180px;left:210px;top:96px">${laptop({ shot, theme, w: 1180 })}</div>`;
+window.__layout = true;
+</script></body></html>

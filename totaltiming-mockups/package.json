@@ -1,0 +1,14 @@
+{
+  "name": "totaltiming-mockups",
+  "private": true,
+  "type": "module",
+  "description": "Reproducible marketing mockups of TotalTiming, captured from the real client against synthetic API fixtures.",
+  "scripts": {
+    "capture": "node scripts/capture.mjs",
+    "render": "node scripts/render.mjs",
+    "build": "npm run capture && npm run render"
+  },
+  "devDependencies": {
+    "playwright": "^1.52.0"
+  }
+}
