@@ -1,4 +1,4 @@
-# Bartholomeusberg.no rebuild team
+# Bartholomeusberg.com rebuild team
 
 This repository is the Next.js website for Bartholomeus Berg, a personal technology services business serving private customers and small businesses in Bergen and Arna. The site should make practical web development, custom systems, PC help, IT support, and basic security easy to understand and easy to enquire about. Read `README.md` and inspect the current site before proposing a rebuild. Keep the voice personal and specific; aim for a premium, distinctive design without generic tech imagery, inflated claims, or unnecessary complexity.
 
