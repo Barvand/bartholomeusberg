@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 
 const CONSENT_COOKIE = "bart_cookie_consent";
 const GOOGLE_TAG_ID = process.env.NEXT_PUBLIC_GOOGLE_TAG_ID;
@@ -16,7 +16,11 @@ declare global {
 
 function sendConsent(choice: ConsentChoice) {
   window.dataLayer = window.dataLayer || [];
-  window.gtag = window.gtag || function gtag(...args: unknown[]) { window.dataLayer?.push(args); };
+  window.gtag =
+    window.gtag ||
+    function gtag(...args: unknown[]) {
+      window.dataLayer?.push(args);
+    };
   window.gtag("consent", "update", {
     analytics_storage: choice === "accepted" ? "granted" : "denied",
     ad_storage: choice === "accepted" ? "granted" : "denied",
@@ -28,7 +32,11 @@ function sendConsent(choice: ConsentChoice) {
 }
 
 function loadGoogleTag() {
-  if (!GOOGLE_TAG_ID || document.querySelector(`script[data-google-tag="${GOOGLE_TAG_ID}"]`)) return;
+  if (
+    !GOOGLE_TAG_ID ||
+    document.querySelector(`script[data-google-tag="${GOOGLE_TAG_ID}"]`)
+  )
+    return;
   const script = document.createElement("script");
   script.async = true;
   script.src = `https://www.googletagmanager.com/gtag/js?id=${GOOGLE_TAG_ID}`;
@@ -50,23 +58,44 @@ function removeGoogleCookies() {
   });
 }
 
-export default function CookieConsent({ initialChoice }: { initialChoice: ConsentChoice | null }) {
+export default function CookieConsent({
+  initialChoice,
+}: {
+  initialChoice: ConsentChoice | null;
+}) {
   const [choice, setChoice] = useState<ConsentChoice | null>(initialChoice);
+  const [dismissedForSession, setDismissedForSession] = useState(false);
+  const firstAction = useRef<HTMLButtonElement>(null);
+  const reopenedFromSettings = useRef(false);
+  const restoreSettingsFocus = useRef(false);
 
   useEffect(() => {
     window.dataLayer = window.dataLayer || [];
-    window.gtag = window.gtag || function gtag(...args: unknown[]) { window.dataLayer?.push(args); };
+    window.gtag =
+      window.gtag ||
+      function gtag(...args: unknown[]) {
+        window.dataLayer?.push(args);
+      };
     // Fallback if the beforeInteractive bootstrap was unavailable.
     if (!window.__cookieConsentDefaultsSet) {
       window.gtag("consent", "default", {
-        analytics_storage: "denied", ad_storage: "denied", ad_user_data: "denied",
-        ad_personalization: "denied", functionality_storage: "denied",
-        personalization_storage: "denied", security_storage: "granted", wait_for_update: 500,
+        analytics_storage: "denied",
+        ad_storage: "denied",
+        ad_user_data: "denied",
+        ad_personalization: "denied",
+        functionality_storage: "denied",
+        personalization_storage: "denied",
+        security_storage: "granted",
+        wait_for_update: 500,
       });
     }
 
-    const stored = document.cookie.split("; ").find((item) => item.startsWith(`${CONSENT_COOKIE}=`))?.split("=")[1];
-    const savedChoice = stored === "accepted" || stored === "rejected" ? stored : null;
+    const stored = document.cookie
+      .split("; ")
+      .find((item) => item.startsWith(`${CONSENT_COOKIE}=`))
+      ?.split("=")[1];
+    const savedChoice =
+      stored === "accepted" || stored === "rejected" ? stored : null;
     setChoice(savedChoice);
     if (savedChoice) {
       sendConsent(savedChoice);
@@ -74,32 +103,76 @@ export default function CookieConsent({ initialChoice }: { initialChoice: Consen
     }
 
     const openSettings = () => {
+      reopenedFromSettings.current = true;
+      setDismissedForSession(false);
       setChoice(null);
     };
+    const dismissWhileReading = () => {
+      if (window.scrollY > 0) setDismissedForSession(true);
+    };
     window.addEventListener("open-cookie-settings", openSettings);
-    return () => window.removeEventListener("open-cookie-settings", openSettings);
+    window.addEventListener("scroll", dismissWhileReading, { passive: true });
+    return () => {
+      window.removeEventListener("open-cookie-settings", openSettings);
+      window.removeEventListener("scroll", dismissWhileReading);
+    };
   }, []);
 
+  useEffect(() => {
+    if (choice === null && reopenedFromSettings.current)
+      firstAction.current?.focus();
+    if (choice !== null && restoreSettingsFocus.current) {
+      restoreSettingsFocus.current = false;
+      document.getElementById("cookie-settings-trigger")?.focus();
+    }
+  }, [choice]);
+
   function choose(nextChoice: ConsentChoice) {
+    const restoreFocus = reopenedFromSettings.current;
+    reopenedFromSettings.current = false;
+    restoreSettingsFocus.current = restoreFocus;
     document.cookie = `${CONSENT_COOKIE}=${nextChoice}; Max-Age=31536000; Path=/; SameSite=Lax`;
     sendConsent(nextChoice);
-    if (nextChoice === "accepted") loadGoogleTag(); else removeGoogleCookies();
+    if (nextChoice === "accepted") loadGoogleTag();
+    else removeGoogleCookies();
     setChoice(nextChoice);
   }
 
-  if (choice) return null;
+  if (choice || dismissedForSession) return null;
   return (
-    <aside className="cookie-banner" aria-labelledby="cookie-title" role="dialog" aria-modal="true">
+    <aside
+      className="cookie-banner"
+      role="region"
+      aria-labelledby="cookie-title"
+    >
       <div className="cookie-banner__content">
         <div>
           <p className="cookie-banner__eyebrow">Personvern</p>
           <h2 id="cookie-title">Vi bruker informasjonskapsler</h2>
-          <p>Vi bruker nødvendige informasjonskapsler for at nettstedet skal fungere. Med ditt samtykke bruker vi også informasjonskapsler fra Google til analyse og måling av annonsering.</p>
-          <a href="/personvern#informasjonskapsler">Les om informasjonskapsler</a>
+          <p>
+            Nødvendige kapsler holder siden i gang. Valgfrie Google-kapsler
+            brukes til analyse og annonsering.
+          </p>
+          <a href="/personvern#informasjonskapsler">
+            Les om informasjonskapsler
+          </a>
         </div>
         <div className="cookie-banner__actions">
-          <button className="cookie-banner__button cookie-banner__button--secondary" type="button" onClick={() => choose("rejected")}>Avslå</button>
-          <button className="cookie-banner__button" type="button" onClick={() => choose("accepted")}>Godta</button>
+          <button
+            ref={firstAction}
+            className="cookie-banner__button cookie-banner__button--secondary"
+            type="button"
+            onClick={() => choose("rejected")}
+          >
+            Avslå
+          </button>
+          <button
+            className="cookie-banner__button"
+            type="button"
+            onClick={() => choose("accepted")}
+          >
+            Godta
+          </button>
         </div>
       </div>
     </aside>

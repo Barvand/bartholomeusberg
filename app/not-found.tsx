@@ -5,7 +5,7 @@ export default function NotFound() {
   return (
     <>
       <Navigation />
-      <main className="utility-page text-center">
+      <main id="main-content" tabIndex={-1} className="utility-page text-center">
         <div className="page-container utility-page__content">
           <p className="utility-page__number" aria-hidden="true">
             404

@@ -1,4 +1,11 @@
 node_modules
 .next
+.next-build
 .env*
 !.env.example
+docs
+.agents
+.claude
+.codebuddy
+.codex
+totaltiming-mockups

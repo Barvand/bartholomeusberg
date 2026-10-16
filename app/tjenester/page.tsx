@@ -3,20 +3,25 @@ import Link from "next/link";
 import Navigation from "../components/navigation";
 
 export const metadata: Metadata = {
-  title: "Tjenester i Arna og Bergen",
+  title: "Nettsider, programvare og IT for bedrifter i Bergen",
   description:
-    "Nettsider, PC-hjelp og praktisk IT-hjelp for små bedrifter og privatpersoner i Arna og Bergen.",
+    "Nettsider, skreddersydd programvare og praktisk IT for små bedrifter i Arna og Bergen. Se også PC-hjelp for privatpersoner.",
   alternates: { canonical: "/tjenester" },
   openGraph: {
-    title: "Tjenester i Arna og Bergen | Bartholomeus Berg",
-    description:
-      "Nettsider, PC-hjelp og praktisk IT-hjelp for små bedrifter og privatpersoner i Arna og Bergen.",
     url: "/tjenester",
+    title:
+      "Nettsider, programvare og IT for bedrifter i Bergen | Bartholomeus Berg",
+    description:
+      "Nettsider, skreddersydd programvare og praktisk IT for små bedrifter i Arna og Bergen. Se også PC-hjelp for privatpersoner.",
+    images: ["/newhero.jpg"],
   },
   twitter: {
-    title: "Tjenester i Arna og Bergen | Bartholomeus Berg",
+    card: "summary_large_image",
+    title:
+      "Nettsider, programvare og IT for bedrifter i Bergen | Bartholomeus Berg",
     description:
-      "Nettsider, PC-hjelp og praktisk IT-hjelp for små bedrifter og privatpersoner i Arna og Bergen.",
+      "Nettsider, skreddersydd programvare og praktisk IT for små bedrifter i Arna og Bergen. Se også PC-hjelp for privatpersoner.",
+    images: ["/newhero.jpg"],
   },
 };
 
@@ -62,7 +67,7 @@ export default function ServicesPage() {
   return (
     <>
       <Navigation />
-      <main className="service-page">
+      <main id="main-content" tabIndex={-1} className="service-page">
         <header className="service-page-hero">
           <div className="page-container">
             <p className="eyebrow eyebrow-light">
@@ -110,8 +115,8 @@ export default function ServicesPage() {
               Praktisk hjelp <em>når du trenger det.</em>
             </h2>
             <p className="service-overview-intro">
-              Ingen supportkø eller unødvendig teknisk språk. Bare hjelp med
-              det som faktisk skal fungere.
+              Ingen supportkø eller unødvendig teknisk språk. Bare hjelp med det
+              som faktisk skal fungere.
             </p>
             <div className="service-editorial-list">
               {itServices.map((service) => (

@@ -1,0 +1,176 @@
+/*
+ * "Slik fungerer TotalTiming": one chapter per role. The role name, intro and
+ * the app's own menu stay pinned on the left while its functions scroll past.
+ * The section breaks out of the case page's 980px column so the mockups are
+ * large enough to read.
+ */
+.section {
+  --breakout: min(1240px, calc(100vw - 2rem));
+  --muted: rgb(229 239 244 / 0.78);
+  --rule: rgb(229 239 244 / 0.18);
+
+  width: var(--breakout);
+  margin: clamp(4rem, 9vw, 7rem) 0 0 calc(50% - var(--breakout) / 2);
+}
+
+.section :where(h2, h3, h4, p, ul, figure) {
+  margin: 0;
+}
+.section :where(ul) {
+  padding: 0;
+  list-style: none;
+}
+.section :where(h2, h3, h4) {
+  font-family: var(--font-display);
+  font-weight: 600;
+  text-wrap: balance;
+}
+.section img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.intro {
+  display: grid;
+  gap: 1.5rem;
+  padding-bottom: clamp(3rem, 7vw, 5rem);
+}
+.intro h2 {
+  max-width: 12ch;
+  font-size: clamp(2.6rem, 6vw, 5.5rem);
+  letter-spacing: -0.06em;
+  line-height: 0.95;
+}
+.intro p {
+  max-width: 34rem;
+  color: var(--muted);
+  font-size: 1.08rem;
+  line-height: 1.75;
+}
+
+.role {
+  display: grid;
+  gap: 2.5rem;
+  padding: 1.75rem 0 clamp(4.5rem, 10vw, 8rem);
+  border-top: 2px solid white;
+}
+.roleHead h3 {
+  font-size: clamp(2.2rem, 4.4vw, 4rem);
+  letter-spacing: -0.06em;
+  line-height: 0.95;
+}
+.roleHead > p:not(.menuLabel) {
+  max-width: 26rem;
+  margin-top: 1.25rem;
+  color: var(--muted);
+  line-height: 1.7;
+}
+.menuLabel {
+  margin-top: 2rem;
+  color: var(--color-fjord-300);
+  font-size: 0.875rem;
+}
+.menu {
+  max-width: 26rem;
+  margin-top: 0.6rem;
+  border-top: 1px solid var(--rule);
+}
+.menu li {
+  padding: 0.6rem 0;
+  border-bottom: 1px solid var(--rule);
+  color: var(--color-fjord-200);
+  font-size: 0.95rem;
+  font-weight: 500;
+}
+
+.features {
+  display: grid;
+  gap: clamp(3.5rem, 7vw, 5.5rem);
+}
+.figure {
+  margin-bottom: 1.5rem;
+}
+.figure img {
+  border-radius: 0.5rem;
+}
+.features h4 {
+  font-size: clamp(1.5rem, 2.4vw, 2.1rem);
+  letter-spacing: -0.045em;
+  line-height: 1.05;
+}
+.features p {
+  max-width: 36rem;
+  margin-top: 0.9rem;
+  color: var(--muted);
+  line-height: 1.7;
+}
+.textOnly {
+  padding-top: 1.5rem;
+  border-top: 1px solid var(--rule);
+}
+
+.closing img {
+  border-radius: 0.75rem;
+}
+.closing figcaption {
+  max-width: 36rem;
+  margin-top: 1.25rem;
+  color: var(--muted);
+  line-height: 1.7;
+}
+.closing strong {
+  color: white;
+  font-weight: 600;
+}
+
+/* Phones: mockups run edge to edge, cropped past their empty margins. */
+@media (max-width: 767px) {
+  .figure,
+  .closing {
+    overflow: hidden;
+    margin-inline: -1rem;
+  }
+  .figure img {
+    width: 124%;
+    max-width: none;
+    margin-left: -12%;
+    border-radius: 0;
+  }
+  .closing img {
+    border-radius: 0;
+  }
+  .closing figcaption {
+    padding-inline: 1rem;
+  }
+}
+
+@media (min-width: 768px) {
+  .section {
+    --breakout: min(1240px, calc(100vw - 3rem));
+  }
+}
+
+@media (min-width: 1024px) {
+  .intro,
+  .role {
+    grid-template-columns: repeat(12, minmax(0, 1fr));
+    column-gap: clamp(1.25rem, 2.2vw, 2rem);
+  }
+  .intro h2 {
+    grid-column: 1 / 8;
+  }
+  .intro p {
+    grid-column: 8 / 13;
+    align-self: end;
+  }
+  .roleHead {
+    position: sticky;
+    top: 6.5rem;
+    grid-column: 1 / 5;
+    align-self: start;
+  }
+  .features {
+    grid-column: 5 / 13;
+  }
+}

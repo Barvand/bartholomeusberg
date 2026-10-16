@@ -1,0 +1,790 @@
+/*
+ * Homepage — "Lys og mørk".
+ * The page turns from white to night on the TotalTiming light/dark mockup:
+ * the hero image straddles the seam, half on white and half on the dark
+ * chapter, the way the screenshot itself is split.
+ */
+.homepage {
+  --ink: #102b39;
+  --ink-strong: #091d2b;
+  --night: #091d2b;
+  --blue: #1d4e68;
+  --blue-dark: #102c3e;
+  --mist: #e5eff4;
+  --paper: #f7f9f8;
+  --white: #fff;
+  --on-night: rgb(229 239 244 / 0.74);
+  --gutter: clamp(1.25rem, 4vw, 3rem);
+  --wrap: min(1320px, calc(100cqw - 2 * var(--gutter)));
+  /* Share of the hero mockup (aspect 3200 × 2200) that hangs into the dark. */
+  --bridge: calc(var(--wrap) * 0.6875 * 0.46);
+  --section: clamp(5rem, 11vw, 10rem);
+
+  container-type: inline-size;
+  overflow: clip;
+  background: var(--white);
+  color: var(--ink-strong);
+}
+
+.homepage :where(h1, h2, h3, p, figure, ul, ol, dl, dd) {
+  margin: 0;
+}
+
+.homepage :where(h1, h2, h3) {
+  font-family: var(--font-display);
+  font-weight: 600;
+  text-wrap: balance;
+}
+
+.homepage :where(ul, ol) {
+  padding: 0;
+  list-style: none;
+}
+
+.homepage :where(img) {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.homepage a:focus-visible {
+  outline: 3px solid var(--color-fjord-500);
+  outline-offset: 3px;
+}
+
+.case a:focus-visible,
+.excel a:focus-visible,
+.contact a:focus-visible {
+  outline-color: var(--color-fjord-200);
+}
+
+.wrap {
+  width: var(--wrap);
+  margin-inline: auto;
+}
+
+/* Shared actions */
+.primaryAction,
+.lightAction {
+  display: inline-flex;
+  min-height: 3.25rem;
+  align-items: center;
+  justify-content: center;
+  padding: 0.9rem 1.5rem;
+  font-size: 0.95rem;
+  font-weight: 700;
+  text-decoration: none;
+  transition:
+    background-color 180ms ease,
+    color 180ms ease;
+}
+.primaryAction {
+  background: var(--blue);
+  color: var(--white);
+}
+.primaryAction:hover {
+  background: var(--ink-strong);
+}
+.lightAction {
+  background: var(--white);
+  color: var(--ink-strong);
+}
+.lightAction:hover {
+  background: var(--color-fjord-200);
+}
+.textAction,
+.textActionLight,
+.serviceList a,
+.homeHelp a,
+.studyLinks a,
+.caseNote a {
+  display: inline-flex;
+  min-height: 2.75rem;
+  align-items: center;
+  font-weight: 700;
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 0.32em;
+  transition: text-decoration-thickness 160ms ease;
+}
+.textAction,
+.serviceList a,
+.homeHelp a,
+.studyLinks a {
+  color: var(--blue);
+}
+.textActionLight,
+.caseNote a {
+  color: var(--white);
+}
+.textAction:hover,
+.textActionLight:hover,
+.serviceList a:hover,
+.homeHelp a:hover,
+.studyLinks a:hover,
+.caseNote a:hover {
+  text-decoration-thickness: 2px;
+}
+
+.kind {
+  color: var(--blue);
+  font-size: 0.875rem;
+  font-weight: 600;
+}
+
+.sectionTitle {
+  max-width: 15ch;
+  font-size: clamp(2.5rem, 5.4vw, 5.25rem);
+  letter-spacing: -0.06em;
+  line-height: 0.96;
+}
+
+/* 1. Hero */
+.hero {
+  padding-top: calc(4.75rem + clamp(3.5rem, 9vw, 8rem));
+}
+.heroTitle {
+  max-width: 13ch;
+  font-size: clamp(3.1rem, 9.2vw, 9.25rem);
+  letter-spacing: -0.065em;
+  line-height: 0.9;
+}
+.heroMeta {
+  display: grid;
+  gap: 2rem;
+  margin-top: clamp(2.25rem, 5vw, 4rem);
+}
+.heroLead {
+  max-width: 34rem;
+  color: var(--ink);
+  font-size: clamp(1.08rem, 1.5vw, 1.25rem);
+  line-height: 1.6;
+}
+.heroActions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem 1.75rem;
+  align-items: center;
+}
+.heroFigure {
+  position: relative;
+  z-index: 1;
+  margin: clamp(3.5rem, 7vw, 6rem) calc(-1 * var(--gutter)) calc(-1 * var(--bridge-mobile, var(--bridge)));
+  animation: settle 1000ms cubic-bezier(0.2, 0.7, 0.2, 1) 120ms both;
+}
+.heroFigure img {
+  box-shadow: 0 2.5rem 5rem -2rem rgb(9 29 43 / 0.45);
+}
+@keyframes settle {
+  from {
+    transform: translateY(2.5rem) scale(0.985);
+  }
+}
+
+/* 2. TotalTiming, the dark chapter */
+.case {
+  padding: calc(var(--bridge-mobile, var(--bridge)) + var(--section)) 0 var(--section);
+  background: var(--night);
+  color: var(--white);
+}
+.caseIntro {
+  display: grid;
+  gap: 2rem;
+}
+.caseTitle {
+  max-width: 12ch;
+  font-size: clamp(2.6rem, 5.8vw, 5.75rem);
+  letter-spacing: -0.06em;
+  line-height: 0.95;
+}
+.caseSummary > p {
+  max-width: 34rem;
+  color: var(--on-night);
+  font-size: 1.08rem;
+  line-height: 1.7;
+}
+.caseFacts {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(8rem, 1fr));
+  gap: 1rem 1.5rem;
+  margin-top: 2rem;
+  padding-top: 1.25rem;
+  border-top: 1px solid rgb(229 239 244 / 0.2);
+}
+.caseFacts dt {
+  color: var(--color-fjord-300);
+  font-size: 0.8125rem;
+}
+.caseFacts dd {
+  margin-top: 0.2rem;
+  font-weight: 600;
+}
+
+.workday {
+  display: grid;
+  gap: clamp(4.5rem, 10vw, 9rem);
+  margin-top: clamp(4.5rem, 10vw, 9rem);
+}
+.step {
+  display: grid;
+  gap: 1.75rem;
+}
+.stepFigure img {
+  border-radius: 0.5rem;
+}
+.stepText {
+  max-width: 26rem;
+}
+.stepNumber {
+  display: block;
+  margin-bottom: 1rem;
+  color: var(--color-fjord-300);
+  font-family: var(--font-display);
+  font-size: 1rem;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+}
+.stepText h3 {
+  font-size: clamp(1.75rem, 2.8vw, 2.6rem);
+  letter-spacing: -0.045em;
+  line-height: 1;
+}
+.stepText p {
+  margin-top: 1rem;
+  color: var(--on-night);
+  line-height: 1.7;
+}
+.caseNote {
+  margin-top: clamp(3.5rem, 7vw, 6rem);
+  padding-top: 1.25rem;
+  border-top: 1px solid rgb(229 239 244 / 0.2);
+  color: var(--color-fjord-300);
+  font-size: 0.95rem;
+}
+.caseNote a {
+  margin-left: 0.35rem;
+}
+
+/* 3. Excel question, still at night */
+.excel {
+  padding: 0 0 var(--section);
+  background: var(--night);
+  color: var(--white);
+}
+.excelGrid {
+  display: grid;
+  gap: 2.25rem;
+  padding-top: var(--section);
+  border-top: 1px solid rgb(229 239 244 / 0.2);
+}
+.excelTitle {
+  max-width: 11ch;
+  font-size: clamp(2.9rem, 8vw, 8rem);
+  letter-spacing: -0.065em;
+  line-height: 0.92;
+}
+.excelBody > p {
+  max-width: 34rem;
+  color: var(--on-night);
+  font-size: 1.1rem;
+  line-height: 1.7;
+}
+.excelBody ul {
+  margin-top: 1.75rem;
+  border-top: 1px solid rgb(229 239 244 / 0.2);
+}
+.excelBody li {
+  padding: 0.9rem 0;
+  border-bottom: 1px solid rgb(229 239 244 / 0.2);
+  font-weight: 500;
+}
+.excelActions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem 1.75rem;
+  align-items: center;
+  margin-top: 2.25rem;
+}
+
+/* 4. Services */
+.services {
+  padding: var(--section) 0;
+}
+.servicesGrid {
+  display: grid;
+  gap: 2.5rem;
+  margin: clamp(2.75rem, 6vw, 5rem) 0 2rem;
+}
+.serviceList {
+  border-top: 2px solid var(--ink-strong);
+}
+.serviceList li {
+  display: grid;
+  gap: 0.6rem;
+  padding: 1.75rem 0;
+  border-bottom: 1px solid rgb(9 29 43 / 0.16);
+}
+.serviceList h3 {
+  font-size: clamp(1.6rem, 2.7vw, 2.35rem);
+  letter-spacing: -0.045em;
+  line-height: 1.05;
+}
+.serviceList p {
+  max-width: 32rem;
+  color: var(--ink);
+  line-height: 1.65;
+}
+.homeHelp {
+  align-self: start;
+  padding: clamp(1.5rem, 3vw, 2.25rem);
+  background: var(--mist);
+}
+.homeHelp h3 {
+  font-size: 1.6rem;
+  letter-spacing: -0.04em;
+}
+.homeHelp p {
+  margin: 0.75rem 0 0.5rem;
+  color: var(--ink);
+  line-height: 1.65;
+}
+
+/* 5. Work */
+.work {
+  padding: var(--section) 0;
+  background: var(--paper);
+}
+.clientGrid {
+  display: grid;
+  gap: 2rem;
+}
+.clientImage {
+  display: block;
+  overflow: hidden;
+}
+.clientImage img {
+  transition: transform 700ms cubic-bezier(0.2, 0.7, 0.2, 1);
+}
+.clientImage:hover img {
+  transform: scale(1.025);
+}
+.clientCopy h2 {
+  margin-top: 0.5rem;
+  font-size: clamp(2.2rem, 4vw, 3.6rem);
+  letter-spacing: -0.06em;
+  line-height: 0.98;
+}
+.clientCopy > p:not(.kind) {
+  margin: 1.25rem 0 0.75rem;
+  color: var(--ink);
+  line-height: 1.7;
+}
+.study {
+  margin-top: var(--section);
+}
+.studyHead {
+  display: grid;
+  gap: 1rem;
+  padding-top: 1.5rem;
+  border-top: 2px solid var(--ink-strong);
+}
+.studyHead h2 {
+  font-size: clamp(1.9rem, 3.2vw, 2.75rem);
+  letter-spacing: -0.05em;
+  line-height: 1;
+}
+.studyHead p {
+  max-width: 30rem;
+  color: var(--ink);
+  line-height: 1.65;
+}
+.studyList {
+  display: grid;
+  gap: 2.5rem;
+  margin-top: 2.5rem;
+}
+.studyThumb {
+  position: relative;
+  overflow: hidden;
+  margin-bottom: 1rem;
+  aspect-ratio: 16 / 10;
+  background: var(--mist);
+}
+.studyThumb img {
+  height: 100%;
+  object-fit: cover;
+  object-position: top center;
+}
+.studyList h3 {
+  margin-top: 0.25rem;
+  font-size: 1.45rem;
+  letter-spacing: -0.04em;
+}
+.studyList li > p:not(.kind) {
+  margin-top: 0.5rem;
+  color: var(--ink);
+  line-height: 1.6;
+}
+.studyLinks {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0 1.25rem;
+}
+
+/* 6. Offer strip */
+.offer {
+  padding: clamp(4rem, 8vw, 6.5rem) 0;
+  background: var(--mist);
+}
+.offerStrip {
+  display: grid;
+  gap: 1.75rem;
+}
+.offerPrice h2 {
+  font-size: clamp(2.2rem, 4.2vw, 3.9rem);
+  letter-spacing: -0.06em;
+  line-height: 0.95;
+}
+.offerPrice h2 span {
+  display: block;
+}
+.offerPrice p {
+  margin-top: 0.75rem;
+  color: var(--ink);
+  font-weight: 600;
+}
+.offerText {
+  max-width: 30rem;
+  color: var(--ink);
+  line-height: 1.7;
+}
+.offerList {
+  border-top: 1px solid rgb(9 29 43 / 0.2);
+}
+.offerList li {
+  padding: 0.7rem 0;
+  border-bottom: 1px solid rgb(9 29 43 / 0.2);
+}
+.offerAction {
+  justify-self: start;
+}
+
+/* 7. About */
+.about {
+  padding: var(--section) 0;
+}
+.aboutGrid {
+  display: grid;
+  gap: 2.5rem;
+}
+.portrait {
+  position: relative;
+  overflow: hidden;
+  aspect-ratio: 4 / 5;
+  background: var(--mist);
+}
+.portrait img {
+  height: 100%;
+  object-fit: cover;
+  object-position: center 30%;
+}
+.aboutLead {
+  max-width: 36rem;
+  margin-top: 2rem;
+  font-size: clamp(1.15rem, 1.6vw, 1.35rem);
+  line-height: 1.6;
+}
+.aboutCopy > p:not(.aboutLead) {
+  max-width: 36rem;
+  margin-top: 1.25rem;
+  color: var(--ink);
+  line-height: 1.7;
+}
+.milestones {
+  display: grid;
+  gap: 1.75rem;
+  margin-top: 3rem;
+}
+.milestones li {
+  padding-top: 1.25rem;
+  border-top: 1px solid rgb(9 29 43 / 0.2);
+}
+.milestones h3 {
+  font-size: 1.2rem;
+  letter-spacing: -0.03em;
+  line-height: 1.2;
+}
+.milestones .kind {
+  margin-top: 0.35rem;
+}
+.milestones p:not(.kind) {
+  margin-top: 0.5rem;
+  color: var(--ink);
+  font-size: 0.95rem;
+  line-height: 1.6;
+}
+
+/* 8. Contact */
+.contact {
+  padding: var(--section) 0;
+  background: var(--night);
+  color: var(--white);
+}
+.contactGrid {
+  display: grid;
+  gap: 2.5rem;
+}
+.contactIntro h2 {
+  font-size: clamp(2.6rem, 5.4vw, 5.25rem);
+  letter-spacing: -0.06em;
+  line-height: 0.95;
+}
+.contactIntro p {
+  max-width: 26rem;
+  margin-top: 1.5rem;
+  color: var(--on-night);
+  font-size: 1.08rem;
+  line-height: 1.7;
+}
+.contactForm {
+  min-width: 0;
+}
+/* The shared form carries its own heading; this section already has one. */
+.contactForm :global(.mx-auto) {
+  max-width: none;
+}
+.contactForm :global(.mb-4),
+.contactForm :global(h2),
+.contactForm :global(h2 + p) {
+  display: none;
+}
+.contactForm :global(form) {
+  margin-top: 0;
+}
+.contactForm :global(label) {
+  font-size: 0.9rem;
+  letter-spacing: 0;
+}
+.contactForm :global(input),
+.contactForm :global(textarea) {
+  min-height: 3rem;
+  border-color: rgb(229 239 244 / 0.4);
+  border-radius: 0;
+  background: var(--blue-dark);
+}
+.contactForm :global(input:focus-visible),
+.contactForm :global(textarea:focus-visible) {
+  outline: 3px solid var(--color-fjord-200);
+  outline-offset: 2px;
+}
+.contactForm :global(button) {
+  min-height: 3.25rem;
+  border-radius: 0;
+  background: var(--white);
+  color: var(--ink-strong);
+}
+.contactForm :global(button:hover) {
+  background: var(--color-fjord-200);
+}
+
+/* Phone: the mockup bleeds edge to edge. */
+@media (max-width: 767px) {
+  /* Crop into the light/dark seam instead of shrinking the whole frame. */
+  .homepage {
+    --bridge-mobile: calc(100cqw * 0.46);
+  }
+  .heroFigure {
+    overflow: hidden;
+    aspect-ratio: 1 / 1;
+  }
+  .heroFigure img {
+    position: absolute;
+    top: -9%;
+    left: -38%;
+    width: 178%;
+    max-width: none;
+    box-shadow: none;
+  }
+  .stepFigure {
+    overflow: hidden;
+    margin-inline: calc(-1 * var(--gutter));
+  }
+  .stepFigure img {
+    width: 124%;
+    max-width: none;
+    margin-left: -12%;
+  }
+  .stepFigure img {
+    border-radius: 0;
+  }
+}
+
+/* Tablet and up: the editorial grid. */
+@media (min-width: 768px) {
+  .heroFigure {
+    margin-inline: 0;
+  }
+  .heroFigure img {
+    border-radius: 0.75rem;
+  }
+  .heroMeta {
+    grid-template-columns: minmax(0, 7fr) minmax(0, 5fr);
+    align-items: end;
+  }
+  .heroActions {
+    justify-content: flex-end;
+  }
+  .caseFacts {
+    max-width: 30rem;
+  }
+  .studyList {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 2rem;
+  }
+  .milestones {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+
+@media (min-width: 1024px) {
+  .caseIntro,
+  .excelGrid,
+  .servicesGrid,
+  .clientGrid,
+  .studyHead,
+  .offerStrip,
+  .aboutGrid,
+  .contactGrid,
+  .step {
+    grid-template-columns: repeat(12, minmax(0, 1fr));
+    column-gap: clamp(1.25rem, 2.2vw, 2rem);
+  }
+
+  .caseTitle {
+    grid-column: 1 / 8;
+  }
+  .caseSummary {
+    grid-column: 8 / 13;
+    align-self: end;
+  }
+
+  /* Workday: wide, offset, wide-reversed, then full width. */
+  .step {
+    align-items: end;
+  }
+  .step:nth-child(1) .stepFigure {
+    grid-column: 1 / 10;
+  }
+  .step:nth-child(1) .stepText {
+    grid-column: 10 / 13;
+  }
+  .step:nth-child(2) .stepFigure {
+    grid-column: 4 / 13;
+    grid-row: 1;
+  }
+  .step:nth-child(2) .stepText {
+    grid-column: 1 / 4;
+    grid-row: 1;
+  }
+  .step:nth-child(3) .stepFigure {
+    grid-column: 1 / 13;
+  }
+  .step:nth-child(3) .stepText {
+    display: grid;
+    grid-column: 1 / 13;
+    grid-template-columns: subgrid;
+    max-width: none;
+    align-items: start;
+  }
+  .step:nth-child(3) .stepNumber,
+  .step:nth-child(3) .stepText h3 {
+    grid-column: 1 / 7;
+  }
+  .step:nth-child(3) .stepNumber {
+    grid-row: 1;
+  }
+  .step:nth-child(3) .stepText h3 {
+    grid-row: 2;
+  }
+  .step:nth-child(3) .stepText p {
+    grid-column: 8 / 12;
+    grid-row: 2;
+    margin-top: 0;
+  }
+
+  .excelTitle {
+    grid-column: 1 / 8;
+  }
+  .excelBody {
+    grid-column: 8 / 13;
+    align-self: end;
+  }
+
+  .serviceList {
+    grid-column: 1 / 9;
+  }
+  .serviceList li {
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+    column-gap: 2rem;
+    align-items: start;
+  }
+  .serviceList h3 {
+    grid-row: 1 / 3;
+  }
+  .serviceList p,
+  .serviceList a {
+    grid-column: 2;
+  }
+  .homeHelp {
+    grid-column: 10 / 13;
+  }
+
+  /* The client screenshot runs off the left edge of the page. */
+  .clientImage {
+    grid-column: 1 / 8;
+    margin-left: calc((var(--wrap) - 100cqw) / 2);
+  }
+  .clientCopy {
+    grid-column: 9 / 13;
+    align-self: center;
+  }
+  .studyHead h2 {
+    grid-column: 1 / 6;
+  }
+  .studyHead p {
+    grid-column: 7 / 12;
+  }
+
+  .offerStrip {
+    align-items: start;
+  }
+  .offerPrice {
+    grid-column: 1 / 5;
+  }
+  .offerText {
+    grid-column: 5 / 8;
+  }
+  .offerList {
+    grid-column: 9 / 13;
+  }
+  .offerAction {
+    grid-column: 9 / 13;
+  }
+
+  .portrait {
+    grid-column: 1 / 6;
+    position: sticky;
+    top: 7rem;
+    align-self: start;
+  }
+  .aboutCopy {
+    grid-column: 7 / 13;
+  }
+
+  .contactIntro {
+    grid-column: 1 / 6;
+  }
+  .contactForm {
+    grid-column: 7 / 13;
+  }
+}

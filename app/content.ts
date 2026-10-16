@@ -1,3 +1,5 @@
+import totalTimingMockup from "../totaltiming-mockups/assets/totaltiming-layered.png";
+
 export const organisationNumber = "935 192 706";
 
 export const projects = [
@@ -7,7 +9,7 @@ export const projects = [
     description:
       "Arbeidsstyringssystem for byggebransjen med timeregistrering, prosjektstyring, fravær og rapportering, med et grensesnitt tilpasset både mobil og PC.",
     stack: ["Timeregistrering", "Prosjektstyring", "Internt system"],
-    image: "/showcase-totaltiming.svg",
+    image: totalTimingMockup,
     liveLink: "",
     repoLink: "",
     type: "Webapplikasjon",

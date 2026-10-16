@@ -6,13 +6,13 @@ import CookieConsent, { type ConsentChoice } from "./components/cookie-consent";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://bartvandenberg.no"),
+  metadataBase: new URL("https://bartholomeusberg.com"),
   title: {
-    default: "Bartholomeus Berg | Nettsider og IT-hjelp i Arna og Bergen",
+    default: "Nettsider, programvare og IT i Bergen | Bartholomeus Berg",
     template: "%s | Bartholomeus Berg",
   },
   description:
-    "Nettsider, PC-hjelp og praktisk IT-hjelp for privatpersoner og små bedrifter i Arna og Bergen.",
+    "Nettsider, skreddersydd programvare og praktisk IT for små bedrifter i Bergen og Arna. Også PC-hjelp for privatpersoner.",
   keywords: [
     "nettside Arna",
     "nettside Bergen",
@@ -25,9 +25,10 @@ export const metadata: Metadata = {
   ],
   authors: [{ name: "Bart van den Berg" }],
   openGraph: {
-    title: "Bartholomeus Berg | Nettsider og IT-hjelp i Arna og Bergen",
+    url: "https://bartholomeusberg.com",
+    title: "Nettsider, programvare og IT i Bergen | Bartholomeus Berg",
     description:
-      "Nettsider, PC-hjelp og praktisk IT-hjelp for privatpersoner og små bedrifter i Arna og Bergen.",
+      "Nettsider, skreddersydd programvare og praktisk IT for små bedrifter i Bergen og Arna. Også PC-hjelp for privatpersoner.",
     type: "website",
     locale: "nb_NO",
     images: [
@@ -41,7 +42,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Bartholomeus Berg | Nettsider og IT-hjelp i Arna og Bergen",
+    title: "Nettsider, programvare og IT i Bergen | Bartholomeus Berg",
     images: ["/newhero.jpg"],
   },
   robots: { index: true, follow: true },
@@ -49,7 +50,6 @@ export const metadata: Metadata = {
 export default async function RootLayout({
   children,
 }: Readonly<{ children: React.ReactNode }>) {
-  const googleTagId = process.env.NEXT_PUBLIC_GOOGLE_TAG_ID;
   const storedConsent = (await cookies()).get("bart_cookie_consent")?.value;
   const initialConsent: ConsentChoice | null =
     storedConsent === "accepted" || storedConsent === "rejected"
@@ -71,24 +71,10 @@ export default async function RootLayout({
             window.__cookieConsentDefaultsSet = true;
           })();
         `}</Script>
-        {googleTagId && (
-          <>
-            <Script
-              id="google-tag-loader"
-              src={`https://www.googletagmanager.com/gtag/js?id=${googleTagId}`}
-              strategy="afterInteractive"
-            />
-            <Script id="google-tag-config" strategy="afterInteractive">{`
-              window.dataLayer = window.dataLayer || [];
-              window.gtag = window.gtag || function () { window.dataLayer.push(arguments); };
-              window.gtag('js', new Date());
-              window.gtag('config', '${googleTagId}');
-            `}</Script>
-          </>
-        )}
+        <a className="skip-link" href="#main-content">Hopp til hovedinnhold</a>
+        <CookieConsent initialChoice={initialConsent} />
         {children}
         <SiteFooter />
-        <CookieConsent initialChoice={initialConsent} />
       </body>
     </html>
   );

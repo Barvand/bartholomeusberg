@@ -19,8 +19,19 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     title,
     description,
     alternates: { canonical: `/tjenester/${service.slug}` },
-    openGraph: { title: `${title} | Bartholomeus Berg`, description },
-    twitter: { title: `${title} | Bartholomeus Berg`, description },
+    openGraph: {
+      url: `/tjenester/${service.slug}`,
+      title: `${title} | Bartholomeus Berg`,
+      description,
+      images: ["/newhero.jpg"],
+      locale: "nb_NO",
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: `${title} | Bartholomeus Berg`,
+      description,
+      images: ["/newhero.jpg"],
+    },
   };
 }
 export default async function ServicePage({ params }: Props) {
@@ -29,13 +40,15 @@ export default async function ServicePage({ params }: Props) {
   return (
     <>
       <Navigation />
-      <main className="service-page">
+      <main id="main-content" tabIndex={-1} className="service-page">
         <header className="service-page-hero">
           <div className="page-container">
             <Link href="/tjenester" className="back-link">
               ← Alle tjenester
             </Link>
-            <p className="eyebrow eyebrow-light">{service.tag} · Arna og Bergen</p>
+            <p className="eyebrow eyebrow-light">
+              {service.tag} · Arna og Bergen
+            </p>
             <h1 className="section-heading">{service.title}</h1>
             <p className="section-intro">{service.intro}</p>
           </div>
