@@ -80,7 +80,14 @@ export async function POST(request: Request) {
     !SMTP_PASSWORD ||
     !CONTACT_EMAIL
   ) {
-    console.error("Missing contact form configuration");
+    console.error("Missing environment variables:", {
+      TURNSTILE_SECRET_KEY: !turnstileSecret,
+      SMTP_HOST: !SMTP_HOST,
+      SMTP_PORT: !SMTP_PORT,
+      SMTP_USER: !SMTP_USER,
+      SMTP_PASSWORD: !SMTP_PASSWORD,
+      CONTACT_EMAIL: !CONTACT_EMAIL,
+    });
 
     return NextResponse.json(
       { error: "Skjemaet er midlertidig utilgjengelig." },
