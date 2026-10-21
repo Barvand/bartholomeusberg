@@ -44,6 +44,7 @@ export default function SiteFooter() {
           <a href="/personvern#informasjonskapsler">
             Personvern og informasjonskapsler
           </a>
+          <Link href="/cv">For arbeidsgivere</Link>
         </div>
       </div>
     </footer>
